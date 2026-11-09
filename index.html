@@ -96,6 +96,32 @@
 
     .wa-disabled { opacity: .45; pointer-events: none; filter: grayscale(.3); }
 
+    /* Seletor de serviço (Recrutamento x Divulgação) */
+    .svc-pill { transition: transform .35s cubic-bezier(.3,.7,.2,1); }
+    .svc-switch[data-active="dv"] .svc-pill { transform: translateX(100%); }
+    .svc-tab { color: #475569; transition: color .25s ease; }
+    .svc-tab:hover { color: #0B1D3A; }
+    .svc-tab[aria-selected="true"] { color: #fff; }
+    .svc-tab[aria-selected="true"] i, .svc-tab[aria-selected="true"] svg { color: #E6C65A; }
+    .svc-tab:focus-visible { outline: 3px solid #D4AF37; outline-offset: 2px; }
+    @keyframes panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .panel-in { animation: panel-in .45s cubic-bezier(.2,.7,.2,1); }
+
+    /* Planos de divulgação no simulador */
+    .dv-input:checked + .dv-tile { border-color: #D4AF37; background: #FFFBEB; box-shadow: 0 0 0 3px rgba(212,175,55,.18); }
+    .dv-input:checked + .dv-tile .cat-check { background: #D4AF37; border-color: #D4AF37; color: #0B1D3A; }
+    .dv-input:focus-visible + .dv-tile { outline: 3px solid #132B52; outline-offset: 2px; }
+    .num-field::-webkit-outer-spin-button, .num-field::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .num-field { -moz-appearance: textfield; appearance: textfield; }
+
+    /* FAQ */
+    .faq summary { list-style: none; cursor: pointer; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq .faq-icon { transition: transform .3s ease, background-color .3s ease; }
+    .faq[open] .faq-icon { transform: rotate(45deg); background: #D4AF37; color: #0B1D3A; }
+    .faq[open] { box-shadow: 0 20px 44px -24px rgba(11, 29, 58, 0.30); border-color: rgba(212,175,55,.55); }
+    .faq[open] .faq-body { animation: panel-in .35s ease; }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
@@ -132,12 +158,13 @@
           </span>
         </a>
 
-        <ul class="hidden items-center gap-7 text-sm font-medium text-white/80 lg:flex">
+        <ul class="hidden items-center gap-6 text-sm font-medium text-white/80 lg:flex xl:gap-7">
           <li><a class="nav-link relative transition hover:text-white" href="#servicos">Serviços</a></li>
           <li><a class="nav-link relative transition hover:text-white" href="#divulgacao">Divulgação de Vagas</a></li>
           <li><a class="nav-link relative transition hover:text-white" href="#investimento">Investimento</a></li>
           <li><a class="nav-link relative transition hover:text-white" href="#simulador">Simulador</a></li>
           <li><a class="nav-link relative transition hover:text-white" href="#garantia">Garantia</a></li>
+          <li><a class="nav-link relative transition hover:text-white" href="#duvidas">Dúvidas</a></li>
           <li><a class="nav-link relative transition hover:text-white" href="#contato">Contato</a></li>
         </ul>
 
@@ -161,6 +188,7 @@
           <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#investimento">Investimento</a></li>
           <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#simulador">Simulador</a></li>
           <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#garantia">Garantia</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#duvidas">Dúvidas Frequentes</a></li>
           <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#contato">Contato</a></li>
           <li class="pt-2">
             <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
@@ -387,11 +415,17 @@
             <div class="icon-ring hidden h-12 w-12 sm:flex"><i data-lucide="zap" class="h-5 w-5"></i></div>
             <p class="font-display text-base font-bold sm:text-xl">Precisa contratar com rapidez? Sua vaga em <span class="text-gold-300">400 grupos</span> de emprego.</p>
           </div>
-          <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
-             data-wa-msg="Olá! Quero divulgar minha vaga nos 400 grupos de vagas de emprego (WhatsApp, Facebook, Instagram, LinkedIn e Telegram). Como funciona?"
-             class="bg-gold-grad inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold text-navy-900 shadow-gold hover:-translate-y-0.5 sm:py-4 sm:text-base md:w-auto">
-            <i class="fa-brands fa-whatsapp text-base sm:text-lg"></i> Divulgar Minha Vaga Agora
-          </a>
+          <div class="flex w-full shrink-0 flex-col gap-3 sm:flex-row md:w-auto">
+            <a href="#investimento" data-goto-svc="dv"
+               class="inline-flex items-center justify-center gap-2 rounded-xl border border-gold/60 px-6 py-3.5 text-sm font-bold text-gold-300 transition hover:bg-gold/10 hover:text-white sm:flex-1 sm:py-4 sm:text-base md:flex-none">
+              <i data-lucide="tag" class="h-4 w-4 sm:h-5 sm:w-5"></i> Ver Planos e Valores
+            </a>
+            <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+               data-wa-msg="Olá! Quero divulgar minha vaga nos 400 grupos de vagas de emprego (WhatsApp, Facebook, Instagram, LinkedIn e Telegram). Como funciona?"
+               class="bg-gold-grad inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold text-navy-900 shadow-gold hover:-translate-y-0.5 sm:flex-1 sm:py-4 sm:text-base md:flex-none">
+              <i class="fa-brands fa-whatsapp text-base sm:text-lg"></i> Divulgar Minha Vaga Agora
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -446,12 +480,26 @@
     <section id="investimento" class="py-14 sm:py-20 lg:py-28">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="reveal mx-auto max-w-3xl sm:text-center">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-gold-700 sm:text-sm">Investimento por Categoria de Vaga</p>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-gold-700 sm:text-sm">Investimento</p>
           <h2 class="mt-3 font-display text-[1.625rem] font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl">Transparência do início ao fim</h2>
-          <p class="mt-3 text-[15px] text-slate-600 sm:mt-4 sm:text-lg">O investimento é calculado sobre o salário bruto mensal da vaga, de acordo com a categoria.</p>
+          <p class="mt-3 text-[15px] text-slate-600 sm:mt-4 sm:text-lg">Escolha o serviço e veja exatamente como o valor é calculado — sem letras miúdas.</p>
         </div>
 
-        <div class="mt-8 grid items-stretch gap-5 sm:mt-14 sm:gap-6 lg:grid-cols-3">
+        <!-- Seletor de serviço -->
+        <div class="svc-switch relative mx-auto mt-7 grid w-full max-w-lg grid-cols-2 rounded-2xl bg-white p-1.5 shadow-soft ring-1 ring-slate-200 sm:mt-10" data-active="rs" role="tablist" aria-label="Escolha o serviço">
+          <span class="svc-pill absolute bottom-1.5 left-1.5 top-1.5 w-[calc(50%-6px)] rounded-xl bg-navy-900" aria-hidden="true"></span>
+          <button type="button" role="tab" aria-selected="true" data-svc="rs" class="svc-tab relative z-10 flex items-center justify-center gap-2 rounded-xl px-2 py-3 text-sm font-bold sm:text-[15px]">
+            <i data-lucide="users" class="h-4 w-4"></i><span class="sm:hidden">Recrutamento</span><span class="hidden sm:inline">Recrutamento &amp; Seleção</span>
+          </button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" data-svc="dv" class="svc-tab relative z-10 flex items-center justify-center gap-2 rounded-xl px-2 py-3 text-sm font-bold sm:text-[15px]">
+            <i data-lucide="megaphone" class="h-4 w-4"></i><span class="sm:hidden">Divulgação</span><span class="hidden sm:inline">Divulgação de Vagas</span>
+          </button>
+        </div>
+
+        <!-- ===== Painel: Recrutamento & Seleção ===== -->
+        <div class="svc-panel" data-panel="rs">
+        <p class="mx-auto mt-6 max-w-2xl text-center text-sm text-slate-500 sm:mt-8 sm:text-[15px]">Processo seletivo completo. O investimento é um percentual do <strong class="text-navy-900">salário bruto mensal</strong> da vaga, de acordo com a categoria.</p>
+        <div class="mt-6 grid items-stretch gap-5 sm:mt-10 sm:gap-6 lg:grid-cols-3">
           <!-- Operacional -->
           <article class="reveal flex flex-col rounded-2xl bg-white p-5 shadow-soft ring-1 ring-slate-200/70 transition duration-300 hover:-translate-y-1 hover:shadow-lift sm:p-8" style="--d:0ms">
             <div class="flex items-center gap-3 sm:gap-4">
@@ -569,6 +617,165 @@
             </div>
           </article>
         </div>
+        </div>
+
+        <!-- ===== Painel: Divulgação de Vagas ===== -->
+        <div class="svc-panel" data-panel="dv" hidden>
+          <p class="mx-auto mt-6 max-w-2xl text-center text-sm text-slate-500 sm:mt-8 sm:text-[15px]">Sua vaga em <strong class="text-navy-900">400 grupos de vagas de emprego</strong> e nas redes sociais. Você paga por vaga e por <strong class="text-navy-900">dia útil</strong> de divulgação.</p>
+
+          <div class="mt-6 grid items-stretch gap-5 sm:mt-10 sm:gap-6 lg:grid-cols-3">
+            <!-- Diário -->
+            <article class="flex flex-col rounded-2xl bg-white p-5 shadow-soft ring-1 ring-slate-200/70 transition duration-300 hover:-translate-y-1 hover:shadow-lift sm:p-8">
+              <div class="flex items-center gap-3 sm:gap-4">
+                <div class="icon-ring h-10 w-10 sm:h-12 sm:w-12"><i data-lucide="calendar-days" class="h-4 w-4 sm:h-5 sm:w-5"></i></div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-navy-900 sm:text-xl">Plano Diário</h3>
+                  <p class="text-sm text-slate-500">Para divulgações pontuais</p>
+                </div>
+              </div>
+              <div class="mt-5 flex items-end gap-1 sm:mt-7">
+                <span class="pb-1.5 font-display text-lg font-bold text-navy-900">R$</span>
+                <span class="font-display text-5xl font-extrabold leading-none text-navy-900 sm:text-6xl">55</span>
+                <span class="pb-1 pl-1 text-sm font-medium leading-tight text-slate-500">,00 por vaga<br />por dia útil</span>
+              </div>
+              <div class="mt-5 rounded-xl bg-slate-50 px-4 py-3 text-sm ring-1 ring-slate-200/70">
+                <p class="text-[11px] font-bold uppercase tracking-widest text-slate-500">Exemplo</p>
+                <p class="mt-1 text-slate-700">1 vaga × 1 dia útil = <strong class="text-navy-900">R$ 55,00</strong></p>
+              </div>
+              <ul class="mt-5 space-y-2 text-sm text-slate-600">
+                <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> 400 grupos de vagas de emprego</li>
+                <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> Texto e arte exclusivos da vaga</li>
+                <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> Currículos direto no seu WhatsApp</li>
+              </ul>
+              <div class="mt-auto grid gap-2.5 pt-6 sm:gap-3 sm:pt-8">
+                <button type="button" data-sim-dv="diario" class="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-navy-900 px-5 py-3 text-sm font-bold text-navy-900 transition hover:bg-navy-900 hover:text-white sm:text-base">
+                  <i data-lucide="calculator" class="h-4 w-4 sm:h-5 sm:w-5"></i> Simular este plano
+                </button>
+                <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+                   data-wa-msg="Olá! Tenho interesse no Plano Diário de Divulgação de Vagas (R$ 55,00 por vaga/dia útil). Pode me passar os detalhes?"
+                   class="flex w-full items-center justify-center gap-2 rounded-xl bg-navy-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-navy-800 sm:text-base">
+                  <i class="fa-brands fa-whatsapp text-gold"></i> Contratar no WhatsApp
+                </a>
+              </div>
+            </article>
+
+            <!-- Semanal -->
+            <article class="flex flex-col rounded-2xl bg-white p-5 shadow-soft ring-1 ring-slate-200/70 transition duration-300 hover:-translate-y-1 hover:shadow-lift sm:p-8">
+              <div class="flex items-center gap-3 sm:gap-4">
+                <div class="icon-ring h-10 w-10 sm:h-12 sm:w-12"><i data-lucide="calendar-range" class="h-4 w-4 sm:h-5 sm:w-5"></i></div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-navy-900 sm:text-xl">Plano Semanal</h3>
+                  <p class="text-sm text-slate-500">Uma semana de divulgação</p>
+                </div>
+              </div>
+              <div class="mt-5 flex items-end gap-1 sm:mt-7">
+                <span class="pb-1.5 font-display text-lg font-bold text-navy-900">R$</span>
+                <span class="font-display text-5xl font-extrabold leading-none text-navy-900 sm:text-6xl">50</span>
+                <span class="pb-1 pl-1 text-sm font-medium leading-tight text-slate-500">,00 por vaga<br />por dia útil</span>
+              </div>
+              <div class="mt-5 rounded-xl bg-slate-50 px-4 py-3 text-sm ring-1 ring-slate-200/70">
+                <p class="text-[11px] font-bold uppercase tracking-widest text-slate-500">Exemplo</p>
+                <p class="mt-1 text-slate-700">1 vaga × 5 dias úteis = <strong class="text-navy-900">R$ 250,00</strong></p>
+                <p class="mt-1 text-xs font-semibold text-emerald-700">Economia de R$ 25,00 frente ao Plano Diário</p>
+              </div>
+              <ul class="mt-5 space-y-2 text-sm text-slate-600">
+                <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> 400 grupos de vagas de emprego</li>
+                <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> Texto e arte exclusivos da vaga</li>
+                <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> Currículos direto no seu WhatsApp</li>
+              </ul>
+              <div class="mt-auto grid gap-2.5 pt-6 sm:gap-3 sm:pt-8">
+                <button type="button" data-sim-dv="semanal" class="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-navy-900 px-5 py-3 text-sm font-bold text-navy-900 transition hover:bg-navy-900 hover:text-white sm:text-base">
+                  <i data-lucide="calculator" class="h-4 w-4 sm:h-5 sm:w-5"></i> Simular este plano
+                </button>
+                <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+                   data-wa-msg="Olá! Tenho interesse no Plano Semanal de Divulgação de Vagas (R$ 50,00 por vaga/dia útil). Pode me passar os detalhes?"
+                   class="flex w-full items-center justify-center gap-2 rounded-xl bg-navy-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-navy-800 sm:text-base">
+                  <i class="fa-brands fa-whatsapp text-gold"></i> Contratar no WhatsApp
+                </a>
+              </div>
+            </article>
+
+            <!-- Mensal -->
+            <article class="relative flex flex-col rounded-2xl border-2 border-gold bg-navy-900 p-5 pt-7 text-white shadow-lift transition duration-300 hover:-translate-y-1 sm:p-8">
+              <span class="bg-gold-grad absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1 text-xs font-bold text-navy-900 shadow-gold">Menor valor por dia</span>
+              <div class="flex items-center gap-3 sm:gap-4">
+                <div class="icon-ring h-10 w-10 sm:h-12 sm:w-12"><i data-lucide="calendar-check" class="h-4 w-4 sm:h-5 sm:w-5"></i></div>
+                <div>
+                  <h3 class="font-display text-lg font-bold sm:text-xl">Plano Mensal</h3>
+                  <p class="text-sm text-white/60">Um mês de divulgação</p>
+                </div>
+              </div>
+              <div class="mt-5 flex items-end gap-1 sm:mt-7">
+                <span class="pb-1.5 font-display text-lg font-bold text-gold-300">R$</span>
+                <span class="font-display text-5xl font-extrabold leading-none text-gold-grad sm:text-6xl">45</span>
+                <span class="pb-1 pl-1 text-sm font-medium leading-tight text-white/60">,00 por vaga<br />por dia útil</span>
+              </div>
+              <div class="mt-5 rounded-xl bg-white/5 px-4 py-3 text-sm ring-1 ring-white/10">
+                <p class="text-[11px] font-bold uppercase tracking-widest text-white/50">Exemplo</p>
+                <p class="mt-1 text-white/85">1 vaga × 20 dias úteis = <strong class="text-gold-300">R$ 900,00</strong></p>
+                <p class="mt-1 text-xs font-semibold text-emerald-300">Economia de R$ 200,00 frente ao Plano Diário</p>
+              </div>
+              <ul class="mt-5 space-y-2 text-sm text-white/75">
+                <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold"></i> 400 grupos de vagas de emprego</li>
+                <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold"></i> Texto e arte exclusivos da vaga</li>
+                <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold"></i> Currículos direto no seu WhatsApp</li>
+              </ul>
+              <div class="mt-auto grid gap-2.5 pt-6 sm:gap-3 sm:pt-8">
+                <button type="button" data-sim-dv="mensal" class="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-gold/70 px-5 py-3 text-sm font-bold text-gold-300 transition hover:bg-gold/10 hover:text-white sm:text-base">
+                  <i data-lucide="calculator" class="h-4 w-4 sm:h-5 sm:w-5"></i> Simular este plano
+                </button>
+                <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+                   data-wa-msg="Olá! Tenho interesse no Plano Mensal de Divulgação de Vagas (R$ 45,00 por vaga/dia útil). Pode me passar os detalhes?"
+                   class="bg-gold-grad flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-navy-900 shadow-gold sm:text-base">
+                  <i class="fa-brands fa-whatsapp"></i> Contratar no WhatsApp
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Como a cobrança funciona -->
+          <div class="mt-6 overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-slate-200/70 sm:mt-10">
+            <div class="grid lg:grid-cols-5">
+              <div class="p-5 sm:p-8 lg:col-span-3">
+                <div class="flex items-center gap-3">
+                  <div class="icon-ring h-10 w-10"><i data-lucide="receipt" class="h-4 w-4"></i></div>
+                  <h3 class="font-display text-lg font-bold text-navy-900 sm:text-xl">Como a cobrança é calculada</h3>
+                </div>
+                <div class="mt-5 flex flex-wrap items-center gap-2 text-sm sm:mt-6">
+                  <span class="rounded-xl bg-navy-900 px-3 py-2 font-semibold text-white">Valor do plano <span class="font-normal text-white/60">(por vaga/dia)</span></span>
+                  <span class="font-display text-lg font-bold text-gold-600">×</span>
+                  <span class="rounded-xl bg-navy-900 px-3 py-2 font-semibold text-white">Dias úteis <span class="font-normal text-white/60">(seg. a sex.)</span></span>
+                  <span class="font-display text-lg font-bold text-gold-600">×</span>
+                  <span class="rounded-xl bg-navy-900 px-3 py-2 font-semibold text-white">Nº de vagas</span>
+                  <span class="font-display text-lg font-bold text-gold-600">=</span>
+                  <span class="bg-gold-grad rounded-xl px-3 py-2 font-bold text-navy-900">Investimento total</span>
+                </div>
+                <ul class="mt-6 space-y-3 text-sm text-slate-600 sm:text-[15px]">
+                  <li class="flex gap-3"><i data-lucide="calendar-x" class="mt-0.5 h-4 w-4 shrink-0 text-gold-600"></i><span>São considerados apenas os <strong class="text-navy-900">dias úteis</strong> de divulgação — de segunda a sexta-feira.</span></li>
+                  <li class="flex gap-3"><i data-lucide="trending-down" class="mt-0.5 h-4 w-4 shrink-0 text-gold-600"></i><span><strong class="text-navy-900">Quanto maior o período contratado, menor é o valor</strong> cobrado por vaga/dia.</span></li>
+                  <li class="flex gap-3"><i data-lucide="info" class="mt-0.5 h-4 w-4 shrink-0 text-gold-600"></i><span>Os valores são válidos somente para o pacote contratado.</span></li>
+                </ul>
+              </div>
+              <div class="border-t border-slate-100 bg-slate-50 p-5 sm:p-8 lg:col-span-2 lg:border-l lg:border-t-0">
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Exemplos práticos</p>
+                <ul class="mt-4 space-y-3 text-sm">
+                  <li class="rounded-xl bg-white p-4 ring-1 ring-slate-200/70">
+                    <p class="font-semibold text-navy-900">1 vaga por 5 dias · Plano Semanal</p>
+                    <p class="mt-1 text-slate-600">R$ 50,00 × 5 dias = <strong class="text-navy-900">R$ 250,00</strong></p>
+                  </li>
+                  <li class="rounded-xl bg-white p-4 ring-1 ring-slate-200/70">
+                    <p class="font-semibold text-navy-900">1 vaga por 20 dias úteis · Plano Mensal</p>
+                    <p class="mt-1 text-slate-600">R$ 45,00 × 20 dias = <strong class="text-navy-900">R$ 900,00</strong></p>
+                  </li>
+                  <li class="rounded-xl bg-white p-4 ring-1 ring-slate-200/70">
+                    <p class="font-semibold text-navy-900">2 vagas por 5 dias · Plano Semanal</p>
+                    <p class="mt-1 text-slate-600">R$ 50,00 × 5 dias × 2 vagas = <strong class="text-navy-900">R$ 500,00</strong></p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -577,11 +784,23 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="reveal mx-auto max-w-3xl sm:text-center">
           <p class="text-xs font-bold uppercase tracking-[0.18em] text-gold-700 sm:text-sm">Simulador de Investimento</p>
-          <h2 class="mt-3 font-display text-[1.625rem] font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl">Calcule agora o investimento da sua vaga</h2>
-          <p class="mt-3 text-[15px] text-slate-600 sm:mt-4 sm:text-lg">Escolha a categoria, informe o salário bruto e veja o valor e as condições de pagamento em tempo real.</p>
+          <h2 class="mt-3 font-display text-[1.625rem] font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl">Calcule agora o seu investimento</h2>
+          <p class="mt-3 text-[15px] text-slate-600 sm:mt-4 sm:text-lg">Escolha o serviço, preencha os dados e veja o valor em tempo real. Depois, envie o resumo direto para o nosso WhatsApp.</p>
         </div>
 
-        <div class="reveal mt-8 grid gap-5 sm:mt-14 sm:gap-6 lg:grid-cols-5">
+        <!-- Seletor de serviço -->
+        <div class="svc-switch reveal relative mx-auto mt-7 grid w-full max-w-lg grid-cols-2 rounded-2xl bg-ice p-1.5 ring-1 ring-slate-200 sm:mt-10" data-active="rs" role="tablist" aria-label="Escolha o serviço para simular">
+          <span class="svc-pill absolute bottom-1.5 left-1.5 top-1.5 w-[calc(50%-6px)] rounded-xl bg-navy-900" aria-hidden="true"></span>
+          <button type="button" role="tab" aria-selected="true" data-svc="rs" class="svc-tab relative z-10 flex items-center justify-center gap-2 rounded-xl px-2 py-3 text-sm font-bold sm:text-[15px]">
+            <i data-lucide="users" class="h-4 w-4"></i><span class="sm:hidden">Recrutamento</span><span class="hidden sm:inline">Recrutamento &amp; Seleção</span>
+          </button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1" data-svc="dv" class="svc-tab relative z-10 flex items-center justify-center gap-2 rounded-xl px-2 py-3 text-sm font-bold sm:text-[15px]">
+            <i data-lucide="megaphone" class="h-4 w-4"></i><span class="sm:hidden">Divulgação</span><span class="hidden sm:inline">Divulgação de Vagas</span>
+          </button>
+        </div>
+
+        <div class="svc-panel" data-panel="rs">
+        <div class="reveal mt-6 grid gap-5 sm:mt-10 sm:gap-6 lg:grid-cols-5">
           <!-- Entradas -->
           <form id="calcForm" class="rounded-2xl bg-ice p-5 ring-1 ring-slate-200 sm:p-8 lg:col-span-3" onsubmit="return false" novalidate>
             <fieldset>
@@ -699,6 +918,149 @@
             </div>
           </div>
         </div>
+        </div>
+
+        <!-- ===== Simulador: Divulgação de Vagas ===== -->
+        <div class="svc-panel" data-panel="dv" hidden>
+          <div class="mt-6 grid gap-5 sm:mt-10 sm:gap-6 lg:grid-cols-5">
+            <form id="dvForm" class="rounded-2xl bg-ice p-5 ring-1 ring-slate-200 sm:p-8 lg:col-span-3" onsubmit="return false" novalidate>
+              <fieldset>
+                <legend class="flex items-center gap-3 font-display text-base font-bold text-navy-900 sm:text-lg">
+                  <span class="flex h-7 w-7 items-center justify-center rounded-full bg-navy-900 text-xs text-gold sm:h-8 sm:w-8 sm:text-sm">1</span>
+                  Escolha o plano
+                </legend>
+                <div class="mt-4 grid gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3">
+                  <label class="block cursor-pointer">
+                    <input class="dv-input sr-only" type="radio" name="dvPlano" value="diario" data-rate="5500" data-min="1" data-label="Plano Diário" />
+                    <div class="dv-tile flex h-full items-center gap-3 rounded-xl border-2 border-slate-200 bg-white px-4 py-3 transition hover:border-gold/60 sm:flex-col sm:items-stretch sm:gap-0 sm:p-4">
+                      <div class="flex items-center justify-between sm:w-full">
+                        <i data-lucide="calendar-days" class="h-5 w-5 text-navy-800"></i>
+                        <span class="cat-check hidden h-5 w-5 items-center justify-center rounded-full border-2 border-slate-300 transition sm:flex"><i data-lucide="check" class="h-3 w-3"></i></span>
+                      </div>
+                      <p class="flex-1 font-bold text-navy-900 sm:mt-3">Diário</p>
+                      <p class="text-sm font-semibold text-gold-700">R$ 55<span class="hidden sm:inline">,00</span>/dia</p>
+                      <span class="cat-check flex h-5 w-5 items-center justify-center rounded-full border-2 border-slate-300 transition sm:hidden"><i data-lucide="check" class="h-3 w-3"></i></span>
+                    </div>
+                  </label>
+                  <label class="block cursor-pointer">
+                    <input class="dv-input sr-only" type="radio" name="dvPlano" value="semanal" data-rate="5000" data-min="5" data-label="Plano Semanal" checked />
+                    <div class="dv-tile flex h-full items-center gap-3 rounded-xl border-2 border-slate-200 bg-white px-4 py-3 transition hover:border-gold/60 sm:flex-col sm:items-stretch sm:gap-0 sm:p-4">
+                      <div class="flex items-center justify-between sm:w-full">
+                        <i data-lucide="calendar-range" class="h-5 w-5 text-navy-800"></i>
+                        <span class="cat-check hidden h-5 w-5 items-center justify-center rounded-full border-2 border-slate-300 transition sm:flex"><i data-lucide="check" class="h-3 w-3"></i></span>
+                      </div>
+                      <p class="flex-1 font-bold text-navy-900 sm:mt-3">Semanal</p>
+                      <p class="text-sm font-semibold text-gold-700">R$ 50<span class="hidden sm:inline">,00</span>/dia</p>
+                      <span class="cat-check flex h-5 w-5 items-center justify-center rounded-full border-2 border-slate-300 transition sm:hidden"><i data-lucide="check" class="h-3 w-3"></i></span>
+                    </div>
+                  </label>
+                  <label class="block cursor-pointer">
+                    <input class="dv-input sr-only" type="radio" name="dvPlano" value="mensal" data-rate="4500" data-min="20" data-label="Plano Mensal" />
+                    <div class="dv-tile flex h-full items-center gap-3 rounded-xl border-2 border-slate-200 bg-white px-4 py-3 transition hover:border-gold/60 sm:flex-col sm:items-stretch sm:gap-0 sm:p-4">
+                      <div class="flex items-center justify-between sm:w-full">
+                        <i data-lucide="calendar-check" class="h-5 w-5 text-navy-800"></i>
+                        <span class="cat-check hidden h-5 w-5 items-center justify-center rounded-full border-2 border-slate-300 transition sm:flex"><i data-lucide="check" class="h-3 w-3"></i></span>
+                      </div>
+                      <p class="flex-1 font-bold text-navy-900 sm:mt-3">Mensal</p>
+                      <p class="text-sm font-semibold text-gold-700">R$ 45<span class="hidden sm:inline">,00</span>/dia</p>
+                      <span class="cat-check flex h-5 w-5 items-center justify-center rounded-full border-2 border-slate-300 transition sm:hidden"><i data-lucide="check" class="h-3 w-3"></i></span>
+                    </div>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="mt-7 grid gap-6 sm:mt-8 sm:grid-cols-2">
+                <div>
+                  <label for="dvDias" class="flex items-center gap-3 font-display text-base font-bold text-navy-900 sm:text-lg">
+                    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-navy-900 text-xs text-gold sm:h-8 sm:w-8 sm:text-sm">2</span>
+                    Dias úteis
+                  </label>
+                  <div class="mt-3 flex items-stretch overflow-hidden rounded-xl border-2 border-slate-200 bg-white focus-within:border-gold focus-within:ring-4 focus-within:ring-gold/20 sm:mt-4">
+                    <button type="button" data-step="dvDias" data-delta="-1" class="flex w-12 items-center justify-center text-navy-900 transition hover:bg-slate-50" aria-label="Diminuir dias"><i data-lucide="minus" class="h-4 w-4"></i></button>
+                    <input id="dvDias" type="number" inputmode="numeric" min="1" max="120" value="5" class="num-field w-full min-w-0 border-x border-slate-100 bg-transparent py-3 text-center text-xl font-bold text-navy-900 outline-none" />
+                    <button type="button" data-step="dvDias" data-delta="1" class="flex w-12 items-center justify-center text-navy-900 transition hover:bg-slate-50" aria-label="Aumentar dias"><i data-lucide="plus" class="h-4 w-4"></i></button>
+                  </div>
+                  <p id="dvDiasHint" class="mt-2 text-xs text-slate-500">Segunda a sexta-feira.</p>
+                </div>
+                <div>
+                  <label for="dvVagas" class="flex items-center gap-3 font-display text-base font-bold text-navy-900 sm:text-lg">
+                    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-navy-900 text-xs text-gold sm:h-8 sm:w-8 sm:text-sm">3</span>
+                    Nº de vagas
+                  </label>
+                  <div class="mt-3 flex items-stretch overflow-hidden rounded-xl border-2 border-slate-200 bg-white focus-within:border-gold focus-within:ring-4 focus-within:ring-gold/20 sm:mt-4">
+                    <button type="button" data-step="dvVagas" data-delta="-1" class="flex w-12 items-center justify-center text-navy-900 transition hover:bg-slate-50" aria-label="Diminuir vagas"><i data-lucide="minus" class="h-4 w-4"></i></button>
+                    <input id="dvVagas" type="number" inputmode="numeric" min="1" max="50" value="1" class="num-field w-full min-w-0 border-x border-slate-100 bg-transparent py-3 text-center text-xl font-bold text-navy-900 outline-none" />
+                    <button type="button" data-step="dvVagas" data-delta="1" class="flex w-12 items-center justify-center text-navy-900 transition hover:bg-slate-50" aria-label="Aumentar vagas"><i data-lucide="plus" class="h-4 w-4"></i></button>
+                  </div>
+                  <p class="mt-2 text-xs text-slate-500">Quantidade de vagas a divulgar.</p>
+                </div>
+              </div>
+
+              <div class="mt-4 flex flex-wrap items-center gap-2">
+                <span class="text-xs text-slate-500 sm:text-sm">Períodos comuns:</span>
+                <button type="button" data-dv-dias="1" class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-navy-800 transition hover:border-gold sm:text-sm">1 dia</button>
+                <button type="button" data-dv-dias="5" class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-navy-800 transition hover:border-gold sm:text-sm">1 semana</button>
+                <button type="button" data-dv-dias="10" class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-navy-800 transition hover:border-gold sm:text-sm">2 semanas</button>
+                <button type="button" data-dv-dias="20" class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-navy-800 transition hover:border-gold sm:text-sm">1 mês</button>
+              </div>
+
+              <div class="mt-7 sm:mt-8">
+                <label for="dvCargo" class="flex items-center gap-3 font-display text-base font-bold text-navy-900 sm:text-lg">
+                  <span class="flex h-7 w-7 items-center justify-center rounded-full bg-navy-900 text-xs text-gold sm:h-8 sm:w-8 sm:text-sm">4</span>
+                  Cargo(s) da vaga <span class="text-sm font-medium text-slate-400">(opcional)</span>
+                </label>
+                <input id="dvCargo" type="text" maxlength="120" placeholder="Ex.: Auxiliar de Produção, Vendedor"
+                       class="mt-3 w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-base font-medium text-navy-900 outline-none transition placeholder:text-slate-400 focus:border-gold focus:ring-4 focus:ring-gold/20 sm:mt-4 sm:py-3.5" />
+              </div>
+            </form>
+
+            <!-- Resultado da divulgação -->
+            <div class="navy-pattern relative flex flex-col overflow-hidden rounded-2xl p-5 text-white shadow-lift ring-2 ring-gold/50 sm:p-8 lg:col-span-2" aria-live="polite">
+              <div class="flex items-center justify-between gap-3">
+                <p class="text-xs font-semibold uppercase tracking-widest text-gold-300 sm:text-sm">Resultado da simulação</p>
+                <span id="dvResPlano" class="rounded-full bg-gold px-3 py-1 text-xs font-bold text-navy-900">Semanal</span>
+              </div>
+              <p id="dvResRate" class="mt-3 text-sm text-white/70 sm:mt-4 sm:text-base">R$ 50,00 por vaga/dia útil</p>
+
+              <p class="mt-5 text-sm text-white/60 sm:mt-6">Investimento total</p>
+              <p id="dvResTotal" class="font-display text-[2rem] font-extrabold leading-tight text-gold-grad sm:text-5xl">R$ 250,00</p>
+              <p id="dvResFormula" class="mt-1 text-sm text-white/60">R$ 50,00 × 5 dias × 1 vaga</p>
+
+              <div class="mt-5 grid grid-cols-3 gap-2 text-center sm:mt-6">
+                <div class="rounded-xl border border-white/10 bg-white/5 px-2 py-3">
+                  <p class="text-[11px] uppercase tracking-wider text-white/50">Por dia</p>
+                  <p id="dvResDiaria" class="mt-0.5 text-sm font-bold">R$ 50,00</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 px-2 py-3">
+                  <p class="text-[11px] uppercase tracking-wider text-white/50">Dias úteis</p>
+                  <p id="dvResDias" class="mt-0.5 text-sm font-bold">5</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 px-2 py-3">
+                  <p class="text-[11px] uppercase tracking-wider text-white/50">Vagas</p>
+                  <p id="dvResVagas" class="mt-0.5 text-sm font-bold">1</p>
+                </div>
+              </div>
+
+              <div id="dvEconomia" class="mt-4 flex items-center gap-2 rounded-xl bg-emerald-400/10 px-4 py-3 text-sm text-emerald-300 ring-1 ring-emerald-400/30">
+                <i data-lucide="piggy-bank" class="h-4 w-4 shrink-0"></i>
+                <span id="dvEconomiaTxt">Economia de R$ 25,00 em relação ao Plano Diário</span>
+              </div>
+
+              <div id="dvTip" class="mt-3 hidden rounded-xl border border-gold/40 bg-gold/10 p-4 text-sm">
+                <p class="flex gap-2 text-white/85"><i data-lucide="lightbulb" class="mt-0.5 h-4 w-4 shrink-0 text-gold"></i><span id="dvTipTxt"></span></p>
+                <button type="button" id="dvTipBtn" class="mt-3 w-full rounded-lg bg-gold px-4 py-2 text-sm font-bold text-navy-900 transition hover:bg-gold-300"></button>
+              </div>
+
+              <div class="mt-auto pt-6 sm:pt-8">
+                <a id="dvWa" href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+                   class="bg-gold-grad flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-center text-sm font-bold text-navy-900 shadow-gold sm:py-4 sm:text-base">
+                  <i class="fa-brands fa-whatsapp text-lg sm:text-xl"></i> Contratar Esta Divulgação no WhatsApp
+                </a>
+                <p class="mt-3 text-center text-xs text-white/55">Valores válidos somente para o pacote contratado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -790,6 +1152,152 @@
       </div>
     </section>
 
+    <!-- ===================== PERGUNTAS FREQUENTES ===================== -->
+    <section id="duvidas" class="border-t border-slate-200/70 bg-white py-14 sm:py-20 lg:py-28">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
+        <div class="reveal lg:col-span-4">
+          <div class="lg:sticky lg:top-28">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-gold-700 sm:text-sm">Perguntas Frequentes</p>
+            <h2 class="mt-3 font-display text-[1.625rem] font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl">Tire suas dúvidas antes de contratar</h2>
+            <p class="mt-3 text-[15px] text-slate-600 sm:mt-4 sm:text-lg">Reunimos as perguntas que mais recebemos das empresas. Não encontrou a sua?</p>
+            <div class="mt-6 rounded-2xl bg-navy-900 p-5 text-white sm:p-6">
+              <div class="flex items-center gap-3">
+                <div class="icon-ring h-11 w-11"><i data-lucide="headset" class="h-5 w-5"></i></div>
+                <div class="leading-tight">
+                  <p class="font-display font-bold">Fale com um consultor</p>
+                  <p class="text-sm text-white/60">Atendimento pelo WhatsApp</p>
+                </div>
+              </div>
+              <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+                 data-wa-msg="Olá, Emprego Em Foco! Tenho uma dúvida sobre os serviços de Recrutamento & Seleção e Divulgação de Vagas."
+                 class="bg-gold-grad mt-5 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-navy-900 shadow-gold">
+                <i class="fa-brands fa-whatsapp text-base"></i> Enviar minha dúvida
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-3 lg:col-span-8">
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq" open>
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Qual a diferença entre Recrutamento &amp; Seleção e Divulgação de Vagas?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>No <strong class="text-navy-900">Recrutamento &amp; Seleção</strong>, nós conduzimos todo o processo: divulgação estratégica, triagem de currículos, entrevistas por competências e avaliação comportamental, até apresentar os profissionais mais alinhados à vaga e à cultura da sua empresa.</p>
+              <p class="mt-2">Na <strong class="text-navy-900">Divulgação de Vagas</strong>, publicamos sua vaga em 400 grupos de vagas de emprego e nas redes sociais, e os currículos chegam direto no seu WhatsApp para que a sua empresa conduza a seleção.</p>
+            </div>
+          </details>
+
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq">
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Como é calculado o investimento do Recrutamento &amp; Seleção?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>É um percentual do salário bruto mensal da vaga, conforme a categoria:</p>
+              <ul class="mt-2 space-y-1">
+                <li>• <strong class="text-navy-900">Operacional:</strong> 45% do salário bruto mensal</li>
+                <li>• <strong class="text-navy-900">Administrativa:</strong> 50% do salário bruto mensal</li>
+                <li>• <strong class="text-navy-900">Gestão:</strong> 60% do salário bruto mensal</li>
+              </ul>
+              <p class="mt-2">Exemplo: uma vaga administrativa com salário de R$ 3.000,00 tem investimento de R$ 1.500,00. Use o <a href="#simulador" data-goto-svc="rs" class="font-semibold text-gold-700 underline underline-offset-2">simulador</a> para calcular a sua.</p>
+            </div>
+          </details>
+
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq">
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Como funciona o pagamento do Recrutamento &amp; Seleção?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>O valor é dividido em duas etapas: <strong class="text-navy-900">50% na abertura da vaga</strong> e <strong class="text-navy-900">50% na data da admissão do colaborador</strong>.</p>
+            </div>
+          </details>
+
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq">
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Como funciona a garantia de 30 dias?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>No Recrutamento &amp; Seleção, oferecemos garantia de reposição do profissional por 30 dias. Se o colaborador apresentar problemas de assiduidade ou comportamento que comprometa a operação, faremos a reposição sem custo.</p>
+            </div>
+          </details>
+
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq">
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Quanto custa divulgar uma vaga?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>Temos três planos, com valor por vaga e por dia útil de divulgação:</p>
+              <ul class="mt-2 space-y-1">
+                <li>• <strong class="text-navy-900">Plano Diário:</strong> R$ 55,00 por vaga</li>
+                <li>• <strong class="text-navy-900">Plano Semanal:</strong> R$ 50,00 por vaga</li>
+                <li>• <strong class="text-navy-900">Plano Mensal:</strong> R$ 45,00 por vaga</li>
+              </ul>
+              <p class="mt-2">Os valores são válidos somente para o pacote contratado.</p>
+            </div>
+          </details>
+
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq">
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Como é feita a cobrança da divulgação?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>Multiplicamos o <strong class="text-navy-900">valor do plano</strong> pela <strong class="text-navy-900">quantidade de dias úteis</strong> de divulgação (segunda a sexta-feira) e pela <strong class="text-navy-900">quantidade de vagas</strong>.</p>
+              <ul class="mt-2 space-y-1">
+                <li>• 1 vaga por 5 dias no Plano Semanal: R$ 50,00 × 5 = <strong class="text-navy-900">R$ 250,00</strong></li>
+                <li>• 1 vaga por 20 dias úteis no Plano Mensal: R$ 45,00 × 20 = <strong class="text-navy-900">R$ 900,00</strong></li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq">
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Qual plano de divulgação compensa mais?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>Quanto maior o período contratado, menor é o valor cobrado por vaga/dia. Em 20 dias úteis, por exemplo, o Plano Mensal custa R$ 900,00 por vaga — R$ 200,00 a menos do que o mesmo período no Plano Diário.</p>
+            </div>
+          </details>
+
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq">
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Onde a minha vaga será divulgada e como recebo os currículos?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>Sua vaga é publicada em 400 grupos de vagas de emprego e divulgada no WhatsApp, Facebook, Instagram, LinkedIn e Telegram, com texto persuasivo e arte exclusiva criados por nós. Os currículos dos candidatos são enviados direto no seu WhatsApp.</p>
+            </div>
+          </details>
+
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq">
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Vocês atendem quais cidades e segmentos?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>Atuamos em todo o Estado de Goiás e divulgamos vagas de todos os segmentos.</p>
+            </div>
+          </details>
+
+          <details class="faq reveal rounded-2xl border border-slate-200 bg-ice transition" name="faq">
+            <summary class="flex items-center justify-between gap-4 p-4 sm:p-5">
+              <span class="font-display text-[15px] font-bold leading-snug text-navy-900 sm:text-base">Como faço para contratar?</span>
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold"><i data-lucide="plus" class="h-4 w-4"></i></span>
+            </summary>
+            <div class="faq-body px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:text-[15px]">
+              <p>Faça uma simulação no <a href="#simulador" class="font-semibold text-gold-700 underline underline-offset-2">simulador</a> e envie o resumo com um clique, ou fale direto com a nossa equipe pelo WhatsApp <strong class="text-navy-900">(62) 99341-1083</strong>.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== CTA FINAL ===================== -->
     <section id="contato" class="hero-bg relative overflow-hidden py-14 text-white sm:py-20 lg:py-28">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
@@ -877,6 +1385,7 @@
           <li><a class="transition hover:text-white" href="#investimento">Investimento</a></li>
           <li><a class="transition hover:text-white" href="#simulador">Simulador</a></li>
           <li><a class="transition hover:text-white" href="#garantia">Garantia</a></li>
+          <li><a class="transition hover:text-white" href="#duvidas">Dúvidas Frequentes</a></li>
           <li><a class="transition hover:text-white" href="#contato">Contato</a></li>
         </ul>
       </div>
@@ -982,7 +1491,7 @@
 
       // Link ativo na navbar
       var navLinks = document.querySelectorAll('.nav-link');
-      var sections = ['servicos', 'divulgacao', 'investimento', 'simulador', 'garantia', 'contato']
+      var sections = ['servicos', 'divulgacao', 'investimento', 'simulador', 'garantia', 'duvidas', 'contato']
         .map(function (id) { return document.getElementById(id); });
       if ('IntersectionObserver' in window) {
         var spy = new IntersectionObserver(function (entries) {
@@ -1083,13 +1592,199 @@
         b.addEventListener('click', function () {
           var val = b.getAttribute('data-simular');
           radios.forEach(function (r) { r.checked = (r.value === val); });
+          setService('rs');
           update();
           document.getElementById('simulador').scrollIntoView({ behavior: 'smooth' });
           setTimeout(function () { salarioEl.focus({ preventScroll: true }); }, 600);
         });
       });
 
+      // ===================== SELETOR DE SERVIÇO =====================
+      function setService(svc) {
+        document.querySelectorAll('.svc-switch').forEach(function (sw) {
+          sw.setAttribute('data-active', svc);
+          sw.querySelectorAll('.svc-tab').forEach(function (t) {
+            var on = t.getAttribute('data-svc') === svc;
+            t.setAttribute('aria-selected', String(on));
+            t.tabIndex = on ? 0 : -1;
+          });
+        });
+        document.querySelectorAll('.svc-panel').forEach(function (p) {
+          var on = p.getAttribute('data-panel') === svc;
+          if (on && p.hidden) {
+            p.hidden = false;
+            p.classList.remove('panel-in'); void p.offsetWidth; p.classList.add('panel-in');
+            p.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+          } else if (!on) {
+            p.hidden = true;
+          }
+        });
+      }
+
+      document.querySelectorAll('.svc-switch').forEach(function (sw) {
+        var tabs = sw.querySelectorAll('.svc-tab');
+        tabs.forEach(function (t) {
+          t.addEventListener('click', function () { setService(t.getAttribute('data-svc')); });
+          t.addEventListener('keydown', function (e) {
+            if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+            e.preventDefault();
+            var next = t.getAttribute('data-svc') === 'rs' ? 'dv' : 'rs';
+            setService(next);
+            sw.querySelector('[data-svc="' + next + '"]').focus();
+          });
+        });
+      });
+
+      // Links que abrem um serviço específico (ex.: "Ver Planos e Valores")
+      document.querySelectorAll('[data-goto-svc]').forEach(function (a) {
+        a.addEventListener('click', function () { setService(a.getAttribute('data-goto-svc')); });
+      });
+
+      // ===================== SIMULADOR DE DIVULGAÇÃO =====================
+      var DIARIO_CENTS = 5500;
+      var dvPlans = document.querySelectorAll('input[name="dvPlano"]');
+      var dvDias = document.getElementById('dvDias');
+      var dvVagas = document.getElementById('dvVagas');
+      var dvCargo = document.getElementById('dvCargo');
+      var dvOut = {
+        plano: document.getElementById('dvResPlano'),
+        rate: document.getElementById('dvResRate'),
+        total: document.getElementById('dvResTotal'),
+        formula: document.getElementById('dvResFormula'),
+        diaria: document.getElementById('dvResDiaria'),
+        dias: document.getElementById('dvResDias'),
+        vagas: document.getElementById('dvResVagas'),
+        eco: document.getElementById('dvEconomia'),
+        ecoTxt: document.getElementById('dvEconomiaTxt'),
+        tip: document.getElementById('dvTip'),
+        tipTxt: document.getElementById('dvTipTxt'),
+        tipBtn: document.getElementById('dvTipBtn'),
+        hint: document.getElementById('dvDiasHint'),
+        wa: document.getElementById('dvWa'),
+      };
+      var MAX = { dvDias: 120, dvVagas: 50 };
+
+      var planOf = function (input) {
+        return {
+          key: input.value,
+          rate: parseInt(input.getAttribute('data-rate'), 10),
+          min: parseInt(input.getAttribute('data-min'), 10),
+          label: input.getAttribute('data-label'),
+          input: input,
+        };
+      };
+      var dvPlan = function () { return planOf(document.querySelector('input[name="dvPlano"]:checked')); };
+      var planByKey = function (k) { return planOf(document.querySelector('input[name="dvPlano"][value="' + k + '"]')); };
+      var bestPlanFor = function (dias) { return dias >= 20 ? 'mensal' : (dias >= 5 ? 'semanal' : 'diario'); };
+      var toInt = function (v, min, max) { v = parseInt(v, 10); if (isNaN(v)) v = min; return Math.max(min, Math.min(max, v)); };
+      var plural = function (n, s, p) { return n + ' ' + (n === 1 ? s : p); };
+
+      var dvUpdate = function () {
+        var p = dvPlan();
+        var dias = toInt(dvDias.value, p.min, MAX.dvDias);
+        var vagas = toInt(dvVagas.value, 1, MAX.dvVagas);
+        var total = p.rate * dias * vagas;
+        var economia = (DIARIO_CENTS - p.rate) * dias * vagas;
+
+        dvDias.min = p.min;
+        dvOut.plano.textContent = p.label.replace('Plano ', '');
+        dvOut.rate.textContent = p.label + ' · ' + fmt(p.rate) + ' por vaga/dia útil';
+        dvOut.total.textContent = fmt(total);
+        dvOut.formula.textContent = fmt(p.rate) + ' × ' + plural(dias, 'dia', 'dias') + ' × ' + plural(vagas, 'vaga', 'vagas');
+        dvOut.diaria.textContent = fmt(p.rate);
+        dvOut.dias.textContent = dias;
+        dvOut.vagas.textContent = vagas;
+        dvOut.hint.textContent = p.min > 1
+          ? 'Segunda a sexta-feira. Mínimo do ' + p.label + ': ' + p.min + ' dias.'
+          : 'Segunda a sexta-feira.';
+        bump(dvOut.total);
+
+        dvOut.eco.classList.toggle('hidden', economia <= 0);
+        if (economia > 0) dvOut.ecoTxt.textContent = 'Economia de ' + fmt(economia) + ' em relação ao Plano Diário';
+
+        // Dica: plano mais vantajoso para o período escolhido
+        var best = planByKey(bestPlanFor(dias));
+        if (best.rate < p.rate) {
+          var novoTotal = best.rate * dias * vagas;
+          dvOut.tipTxt.textContent = 'Com ' + plural(dias, 'dia útil', 'dias úteis') + ', o ' + best.label + ' sai por ' + fmt(novoTotal) + ' — ' + fmt(total - novoTotal) + ' a menos.';
+          dvOut.tipBtn.textContent = 'Aplicar ' + best.label;
+          dvOut.tipBtn.setAttribute('data-plan', best.key);
+          dvOut.tip.classList.remove('hidden');
+        } else {
+          dvOut.tip.classList.add('hidden');
+        }
+
+        var cargo = dvCargo.value.trim();
+        var msg =
+          'Olá, Emprego Em Foco! Fiz uma simulação de *Divulgação de Vagas* no site e quero contratar:\n\n' +
+          '*Plano:* ' + p.label + ' (' + fmt(p.rate) + ' por vaga/dia útil)\n' +
+          (cargo ? '*Cargo(s):* ' + cargo + '\n' : '') +
+          '*Dias úteis de divulgação:* ' + dias + '\n' +
+          '*Quantidade de vagas:* ' + vagas + '\n' +
+          '*Investimento total:* ' + fmt(total) + '\n\n' +
+          'Podemos dar andamento?';
+        dvOut.wa.setAttribute('href', waLink(msg));
+      };
+
+      // Ao trocar de plano, respeita o mínimo de dias do pacote
+      dvPlans.forEach(function (r) {
+        r.addEventListener('change', function () {
+          var p = dvPlan();
+          if (toInt(dvDias.value, 1, MAX.dvDias) < p.min) dvDias.value = p.min;
+          dvUpdate();
+        });
+      });
+
+      [dvDias, dvVagas].forEach(function (el) {
+        el.addEventListener('input', dvUpdate);
+        el.addEventListener('change', function () {
+          var min = el === dvDias ? dvPlan().min : 1;
+          el.value = toInt(el.value, min, MAX[el.id]);
+          dvUpdate();
+        });
+        el.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); el.blur(); } });
+      });
+      dvCargo.addEventListener('input', dvUpdate);
+
+      document.querySelectorAll('[data-step]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var el = document.getElementById(b.getAttribute('data-step'));
+          var min = el === dvDias ? dvPlan().min : 1;
+          el.value = toInt(toInt(el.value, min, MAX[el.id]) + parseInt(b.getAttribute('data-delta'), 10), min, MAX[el.id]);
+          dvUpdate();
+        });
+      });
+
+      // Períodos comuns: define os dias e escolhe o plano mais vantajoso
+      document.querySelectorAll('[data-dv-dias]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var dias = parseInt(b.getAttribute('data-dv-dias'), 10);
+          planByKey(bestPlanFor(dias)).input.checked = true;
+          dvDias.value = dias;
+          dvUpdate();
+        });
+      });
+
+      dvOut.tipBtn.addEventListener('click', function () {
+        planByKey(dvOut.tipBtn.getAttribute('data-plan')).input.checked = true;
+        dvUpdate();
+      });
+
+      // Botões "Simular este plano" nos cards de divulgação
+      document.querySelectorAll('[data-sim-dv]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var p = planByKey(b.getAttribute('data-sim-dv'));
+          p.input.checked = true;
+          dvDias.value = p.min;
+          dvVagas.value = 1;
+          setService('dv');
+          dvUpdate();
+          document.getElementById('simulador').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
       update();
+      dvUpdate();
     })();
   </script>
 </body>
