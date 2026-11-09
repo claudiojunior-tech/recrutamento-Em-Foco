@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emprego Em Foco | Recrutamento & Seleção em Goiás</title>
+  <meta name="description" content="Consultoria especializada em Recrutamento & Seleção e divulgação de vagas em todo o Estado de Goiás. Processo completo em 5 etapas, garantia de reposição de 30 dias. Solicite um orçamento sem compromisso." />
+  <meta name="theme-color" content="#0B1D3A" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Emprego Em Foco | Recrutamento Estratégico que Gera Resultados" />
+  <meta property="og:description" content="Recrutamento & Seleção e divulgação de vagas em 400 grupos. Atuação em todo o Estado de Goiás." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Favicon (lupa dourada com maleta) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='19' cy='19' r='14' fill='%230B1D3A' stroke='%23D4AF37' stroke-width='3.5'/%3E%3Cpath d='M29.5 29.5 40 40' stroke='%23D4AF37' stroke-width='5' stroke-linecap='round'/%3E%3Crect x='11.5' y='16' width='15' height='10' rx='2' fill='%23fff'/%3E%3Cpath d='M16 16v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2' fill='none' stroke='%23fff' stroke-width='1.8'/%3E%3C/svg%3E" />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Ícones de marcas (WhatsApp, redes sociais) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 950: '#071327', 900: '#0B1D3A', 800: '#132B52', 700: '#1C3A6B' },
+            gold: { DEFAULT: '#D4AF37', 300: '#E6C65A', 600: '#C59B27', 700: '#9A7A1C' },
+            ice: '#F8FAFC',
+            ink: '#1E293B',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 10px 30px -12px rgba(11, 29, 58, 0.18)',
+            lift: '0 24px 50px -20px rgba(11, 29, 58, 0.35)',
+            gold: '0 12px 30px -10px rgba(212, 175, 55, 0.55)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-padding-top: 88px; }
+    body { -webkit-font-smoothing: antialiased; }
+
+    .bg-gold-grad { background-image: linear-gradient(135deg, #C59B27 0%, #E6C65A 50%, #C59B27 100%); background-size: 200% 200%; transition: background-position .5s ease, box-shadow .3s ease, transform .3s ease; }
+    .bg-gold-grad:hover { background-position: 100% 0; }
+    .text-gold-grad { background-image: linear-gradient(135deg, #C59B27, #E6C65A 55%, #D4AF37); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    .hero-bg {
+      background-color: #0B1D3A;
+      background-image:
+        radial-gradient(60rem 30rem at 85% -10%, rgba(212,175,55,.18), transparent 60%),
+        radial-gradient(40rem 25rem at -10% 110%, rgba(19,43,82,.9), transparent 60%),
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: auto, auto, 48px 48px, 48px 48px;
+    }
+    .navy-pattern {
+      background-color: #0B1D3A;
+      background-image:
+        radial-gradient(50rem 24rem at 100% 0%, rgba(212,175,55,.14), transparent 60%),
+        radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: auto, 22px 22px;
+    }
+
+    /* Ícone em círculo azul-marinho com borda dourada */
+    .icon-ring { display:flex; align-items:center; justify-content:center; border-radius:9999px; background:#0B1D3A; border:2px solid #D4AF37; color:#E6C65A; box-shadow: 0 0 0 6px rgba(212,175,55,.10); flex-shrink:0; }
+
+    /* Animações de entrada (só ativas quando o JS carrega) */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0ms); }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+
+    @keyframes wa-pulse { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.7); opacity: 0; } }
+    .wa-pulse::before { content:''; position:absolute; inset:0; border-radius:9999px; background:#25D366; animation: wa-pulse 2.2s ease-out infinite; z-index:-1; }
+
+    @keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .float-y { animation: float-y 6s ease-in-out infinite; }
+
+    @keyframes bump { 0% { transform: scale(1); } 40% { transform: scale(1.04); } 100% { transform: scale(1); } }
+    .bump { animation: bump .35s ease; }
+
+    .nav-link.active { color: #E6C65A; }
+    .nav-link.active::after { transform: scaleX(1); }
+    .nav-link::after { content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:#D4AF37; transform: scaleX(0); transition: transform .3s ease; border-radius: 2px; }
+    .nav-link:hover::after { transform: scaleX(1); }
+
+    /* Radio tiles do simulador */
+    .cat-input:checked + .cat-tile { border-color: #D4AF37; background: #FFFBEB; box-shadow: 0 0 0 4px rgba(212,175,55,.18); }
+    .cat-input:checked + .cat-tile .cat-check { background: #D4AF37; border-color: #D4AF37; color: #0B1D3A; }
+    .cat-input:focus-visible + .cat-tile { outline: 3px solid #132B52; outline-offset: 2px; }
+
+    .wa-disabled { opacity: .45; pointer-events: none; filter: grayscale(.3); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .wa-pulse::before, .float-y, .bump { animation: none; }
+    }
+  </style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body class="bg-ice font-sans text-ink">
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header id="topo" class="fixed inset-x-0 top-0 z-50">
+    <nav id="navbar" class="border-b border-white/10 bg-navy-900/70 backdrop-blur-xl transition-all duration-300" aria-label="Navegação principal">
+      <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <a href="#topo" class="flex items-center gap-3" aria-label="Emprego Em Foco — início">
+          <!-- Logo: maleta executiva dentro de lupa dourada -->
+          <svg class="h-10 w-10 shrink-0" viewBox="0 0 44 44" aria-hidden="true">
+            <defs>
+              <linearGradient id="lg-gold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#C59B27" /><stop offset=".5" stop-color="#E6C65A" /><stop offset="1" stop-color="#C59B27" />
+              </linearGradient>
+            </defs>
+            <circle cx="19" cy="19" r="14" fill="#132B52" stroke="url(#lg-gold)" stroke-width="3.5" />
+            <path d="M29.5 29.5 40 40" stroke="url(#lg-gold)" stroke-width="5" stroke-linecap="round" />
+            <rect x="11.5" y="16" width="15" height="10" rx="2" fill="#fff" />
+            <path d="M16 16v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="none" stroke="#fff" stroke-width="1.8" />
+            <path d="M11.5 20.5h15" stroke="#132B52" stroke-width="1.2" />
+            <rect x="17.8" y="19.4" width="2.4" height="2.4" rx=".5" fill="#D4AF37" />
+          </svg>
+          <span class="leading-none">
+            <span class="block font-display text-lg font-extrabold tracking-[0.18em] text-white">EMPREGO</span>
+            <span class="block font-display text-sm font-bold tracking-wide text-gold-grad">Em Foco</span>
+          </span>
+        </a>
+
+        <ul class="hidden items-center gap-7 text-sm font-medium text-white/80 lg:flex">
+          <li><a class="nav-link relative transition hover:text-white" href="#servicos">Serviços</a></li>
+          <li><a class="nav-link relative transition hover:text-white" href="#divulgacao">Divulgação de Vagas</a></li>
+          <li><a class="nav-link relative transition hover:text-white" href="#investimento">Investimento</a></li>
+          <li><a class="nav-link relative transition hover:text-white" href="#simulador">Simulador</a></li>
+          <li><a class="nav-link relative transition hover:text-white" href="#garantia">Garantia</a></li>
+          <li><a class="nav-link relative transition hover:text-white" href="#contato">Contato</a></li>
+        </ul>
+
+        <div class="flex items-center gap-2">
+          <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+             data-wa-msg="Olá, Emprego Em Foco! Gostaria de solicitar um orçamento para o serviço de Recrutamento & Seleção."
+             class="bg-gold-grad hidden items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-navy-900 shadow-gold hover:-translate-y-0.5 sm:inline-flex">
+            <i class="fa-brands fa-whatsapp text-base"></i> Solicitar Orçamento
+          </a>
+          <button id="menuBtn" type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 text-white lg:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menu">
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu mobile -->
+      <div id="mobileMenu" class="hidden border-t border-white/10 lg:hidden">
+        <ul class="mx-auto max-w-7xl space-y-1 px-4 py-4 text-base font-medium text-white/90 sm:px-6">
+          <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#servicos">Serviços</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#divulgacao">Divulgação de Vagas</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#investimento">Investimento</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#simulador">Simulador</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#garantia">Garantia</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 hover:bg-white/5" href="#contato">Contato</a></li>
+          <li class="pt-2">
+            <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+               data-wa-msg="Olá, Emprego Em Foco! Gostaria de solicitar um orçamento para o serviço de Recrutamento & Seleção."
+               class="bg-gold-grad flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-bold text-navy-900">
+              <i class="fa-brands fa-whatsapp text-lg"></i> Solicitar Orçamento
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero-bg relative overflow-hidden pb-16 pt-28 text-white sm:pt-32 lg:pb-24 lg:pt-40">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+        <div class="lg:col-span-7">
+          <span class="reveal inline-flex items-start gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-semibold text-gold-300 sm:items-center sm:text-sm">
+            <i data-lucide="map-pin" class="mt-0.5 h-4 w-4 shrink-0 sm:mt-0"></i>
+            <span>Consultoria Especializada em Recrutamento &amp; Seleção — Atuação em todo o Estado de Goiás</span>
+          </span>
+
+          <h1 class="reveal mt-6 font-display text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="--d:100ms">
+            Recrutamento Estratégico que <span class="text-gold-grad">Gera Resultados</span>
+          </h1>
+
+          <p class="reveal mt-6 max-w-2xl text-lg leading-relaxed text-white/75" style="--d:200ms">
+            Nosso foco é encontrar pessoas alinhadas ao perfil da vaga, à cultura e aos objetivos da sua empresa, através de um processo completo, seguro e assertivo para sua empresa contratar melhor.
+          </p>
+
+          <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row" style="--d:300ms">
+            <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+               data-wa-msg="Olá! Gostaria de solicitar um orçamento sem compromisso para o serviço completo de Recrutamento & Seleção da minha empresa."
+               class="bg-gold-grad group inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 text-base font-bold text-navy-900 shadow-gold hover:-translate-y-0.5">
+              Solicite um Orçamento Sem Compromisso
+              <i data-lucide="arrow-right" class="h-5 w-5 transition group-hover:translate-x-1"></i>
+            </a>
+            <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+               data-wa-msg="Olá! Quero divulgar uma vaga da minha empresa com a Emprego Em Foco. Pode me passar os detalhes?"
+               class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-gold/70 px-7 py-4 text-base font-bold text-gold-300 transition hover:border-gold hover:bg-gold/10 hover:text-white">
+              <i data-lucide="megaphone" class="h-5 w-5"></i> Quero Divulgar uma Vaga
+            </a>
+          </div>
+
+          <p class="reveal mt-5 flex items-center gap-2 text-sm text-white/60" style="--d:380ms">
+            <i data-lucide="shield-check" class="h-4 w-4 text-gold"></i>
+            Garantia de reposição do profissional por 30 dias
+          </p>
+        </div>
+
+        <!-- Visual do processo -->
+        <div class="reveal relative lg:col-span-5" style="--d:250ms">
+          <div class="float-y relative mx-auto max-w-md rounded-2xl border border-white/10 bg-white/[0.06] p-6 shadow-lift backdrop-blur-md">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-widest text-gold-300">Processo Seletivo</p>
+                <p class="mt-1 font-display text-lg font-bold">Recrutamento &amp; Seleção Completo</p>
+              </div>
+              <div class="icon-ring h-12 w-12"><i data-lucide="briefcase" class="h-5 w-5"></i></div>
+            </div>
+
+            <ul class="mt-6 space-y-3 text-sm">
+              <li class="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3"><i data-lucide="megaphone" class="h-4 w-4 text-gold"></i><span class="flex-1">Divulgação estratégica</span><i data-lucide="check-circle-2" class="h-5 w-5 text-emerald-400"></i></li>
+              <li class="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3"><i data-lucide="file-search" class="h-4 w-4 text-gold"></i><span class="flex-1">Triagem de currículos</span><i data-lucide="check-circle-2" class="h-5 w-5 text-emerald-400"></i></li>
+              <li class="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3"><i data-lucide="messages-square" class="h-4 w-4 text-gold"></i><span class="flex-1">Entrevistas por competências</span><i data-lucide="check-circle-2" class="h-5 w-5 text-emerald-400"></i></li>
+              <li class="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3"><i data-lucide="brain" class="h-4 w-4 text-gold"></i><span class="flex-1">Avaliação comportamental</span><i data-lucide="check-circle-2" class="h-5 w-5 text-emerald-400"></i></li>
+              <li class="flex items-center gap-3 rounded-xl border border-gold/40 bg-gold/10 px-4 py-3"><i data-lucide="shield-check" class="h-4 w-4 text-gold"></i><span class="flex-1">Pesquisa de antecedentes</span><span class="rounded-full bg-gold px-2 py-0.5 text-[11px] font-bold text-navy-900">Segurança</span></li>
+            </ul>
+          </div>
+
+          <div class="absolute -bottom-6 -left-2 hidden items-center gap-3 rounded-2xl bg-white px-4 py-3 text-ink shadow-lift sm:flex lg:-left-8">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600"><i data-lucide="user-check" class="h-5 w-5"></i></div>
+            <div class="leading-tight">
+              <p class="text-sm font-bold">Candidato alinhado</p>
+              <p class="text-xs text-slate-500">ao perfil e à cultura</p>
+            </div>
+          </div>
+          <div class="absolute -right-2 -top-5 hidden items-center gap-2 rounded-2xl border border-gold/50 bg-navy-800 px-4 py-2.5 shadow-lift sm:flex lg:-right-6">
+            <i data-lucide="users" class="h-4 w-4 text-gold"></i>
+            <span class="text-sm font-semibold">400 grupos de vagas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faixa de Autoridade -->
+      <div class="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:mt-24 lg:px-8">
+        <div class="grid gap-4 md:grid-cols-3">
+          <div class="reveal flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5" style="--d:0ms">
+            <div class="icon-ring h-12 w-12"><i data-lucide="target" class="h-5 w-5"></i></div>
+            <div>
+              <h3 class="font-display font-bold">Foco em Pessoas</h3>
+              <p class="mt-1 text-sm text-white/65">Resultados reais para sua empresa.</p>
+            </div>
+          </div>
+          <div class="reveal flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5" style="--d:120ms">
+            <div class="icon-ring h-12 w-12"><i data-lucide="sliders-horizontal" class="h-5 w-5"></i></div>
+            <div>
+              <h3 class="font-display font-bold">Processo Personalizado</h3>
+              <p class="mt-1 text-sm text-white/65">Estruturado de acordo com o perfil da sua vaga.</p>
+            </div>
+          </div>
+          <div class="reveal flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5" style="--d:240ms">
+            <div class="icon-ring h-12 w-12"><i data-lucide="award" class="h-5 w-5"></i></div>
+            <div>
+              <h3 class="font-display font-bold">Excelência Operacional</h3>
+              <p class="mt-1 text-sm text-white/65">Profissionalismo, agilidade e compromisso em cada etapa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== METODOLOGIA ===================== -->
+    <section id="servicos" class="py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-gold-700">Metodologia de Recrutamento &amp; Seleção</p>
+          <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">Um processo completo em <span class="text-gold-grad">5 etapas</span></h2>
+          <p class="mt-4 text-lg text-slate-600">Cada etapa foi pensada para reduzir riscos e entregar à sua empresa profissionais com o perfil certo para a vaga.</p>
+        </div>
+
+        <ol class="relative mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
+          <li class="absolute left-[10%] right-[10%] top-8 hidden h-0.5 bg-gradient-to-r from-gold/0 via-gold to-gold/0 lg:block" aria-hidden="true"></li>
+
+          <li class="reveal relative flex flex-col items-center text-center" style="--d:0ms">
+            <div class="icon-ring relative z-10 h-16 w-16"><i data-lucide="megaphone" class="h-7 w-7"></i></div>
+            <div class="mt-5 flex w-full flex-1 flex-col rounded-2xl bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+              <span class="text-xs font-bold uppercase tracking-widest text-gold-700">Etapa 01</span>
+              <h3 class="mt-2 font-display text-lg font-bold leading-snug text-navy-900">Divulgação Estratégica da Vaga</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">Alcance qualificado para sua vaga em canais estratégicos e apropriados.</p>
+            </div>
+          </li>
+          <li class="reveal relative flex flex-col items-center text-center" style="--d:100ms">
+            <div class="icon-ring relative z-10 h-16 w-16"><i data-lucide="file-search" class="h-7 w-7"></i></div>
+            <div class="mt-5 flex w-full flex-1 flex-col rounded-2xl bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+              <span class="text-xs font-bold uppercase tracking-widest text-gold-700">Etapa 02</span>
+              <h3 class="mt-2 font-display text-lg font-bold leading-snug text-navy-900">Triagem Completa de Currículos</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">Análise detalhada dos currículos conforme o perfil fornecido pela empresa.</p>
+            </div>
+          </li>
+          <li class="reveal relative flex flex-col items-center text-center" style="--d:200ms">
+            <div class="icon-ring relative z-10 h-16 w-16"><i data-lucide="messages-square" class="h-7 w-7"></i></div>
+            <div class="mt-5 flex w-full flex-1 flex-col rounded-2xl bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+              <span class="text-xs font-bold uppercase tracking-widest text-gold-700">Etapa 03</span>
+              <h3 class="mt-2 font-display text-lg font-bold leading-snug text-navy-900">Entrevistas por Competências</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">Condução técnica para avaliar habilidades, experiências e selecionar os melhores para sua empresa.</p>
+            </div>
+          </li>
+          <li class="reveal relative flex flex-col items-center text-center" style="--d:300ms">
+            <div class="icon-ring relative z-10 h-16 w-16"><i data-lucide="brain" class="h-7 w-7"></i></div>
+            <div class="mt-5 flex w-full flex-1 flex-col rounded-2xl bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+              <span class="text-xs font-bold uppercase tracking-widest text-gold-700">Etapa 04</span>
+              <h3 class="mt-2 font-display text-lg font-bold leading-snug text-navy-900">Avaliação Comportamental</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">Mapeamento de perfil com aplicação de testes quando necessário.</p>
+            </div>
+          </li>
+          <li class="reveal relative flex flex-col items-center text-center sm:col-span-2 lg:col-span-1" style="--d:400ms">
+            <div class="icon-ring relative z-10 h-16 w-16"><i data-lucide="shield-check" class="h-7 w-7"></i></div>
+            <div class="mt-5 flex w-full flex-1 flex-col rounded-2xl border-2 border-gold/60 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+              <span class="text-xs font-bold uppercase tracking-widest text-gold-700">Etapa 05</span>
+              <h3 class="mt-2 font-display text-lg font-bold leading-snug text-navy-900">Pesquisa de Antecedentes Criminais e Processos de Trabalho</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">Checagem preventiva que entrega mais segurança para sua contratação.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="reveal mt-14 flex justify-center">
+          <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+             data-wa-msg="Olá! Conheci a metodologia em 5 etapas e quero contratar o processo completo de Recrutamento & Seleção para minha empresa."
+             class="inline-flex items-center gap-2 rounded-xl bg-navy-900 px-7 py-4 font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-navy-800">
+            <i class="fa-brands fa-whatsapp text-lg text-gold"></i> Quero o processo completo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DIVULGAÇÃO DE VAGAS ===================== -->
+    <section id="divulgacao" class="navy-pattern relative overflow-hidden py-20 text-white lg:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid items-end gap-10 lg:grid-cols-2">
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-sm font-semibold text-gold-300">
+              <i data-lucide="map" class="h-4 w-4"></i> Destaque Regional · Goiás
+            </span>
+            <h2 class="mt-5 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              Empresas: <span class="text-gold-grad">Divulguem Suas Vagas</span> Conosco!
+            </h2>
+            <p class="mt-5 text-lg text-white/75">Atuamos em todo o Estado de Goiás e divulgamos vagas em todos os segmentos!</p>
+          </div>
+          <div class="reveal flex flex-wrap gap-3 lg:justify-end" style="--d:150ms" aria-label="Canais de divulgação">
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm"><i class="fa-brands fa-whatsapp text-[#25D366]"></i> WhatsApp</span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm"><i class="fa-brands fa-facebook text-[#4C8DF6]"></i> Facebook</span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm"><i class="fa-brands fa-instagram text-[#F56C9B]"></i> Instagram</span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm"><i class="fa-brands fa-linkedin text-[#4FA3E0]"></i> LinkedIn</span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm"><i class="fa-brands fa-telegram text-[#3DB4E8]"></i> Telegram</span>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="reveal group rounded-2xl border border-gold/50 bg-gradient-to-b from-gold/15 to-white/[0.03] p-7 transition duration-300 hover:-translate-y-1" style="--d:0ms">
+            <div class="icon-ring h-14 w-14"><i data-lucide="users" class="h-6 w-6"></i></div>
+            <p class="mt-6 font-display text-5xl font-black text-gold-grad">400</p>
+            <h3 class="mt-1 font-display text-lg font-bold">Grupos de Vagas de Emprego</h3>
+            <p class="mt-3 text-sm leading-relaxed text-white/70">Mais visibilidade e alcance imediato para sua vaga.</p>
+          </article>
+          <article class="reveal group rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition duration-300 hover:-translate-y-1 hover:border-gold/50" style="--d:100ms">
+            <div class="icon-ring h-14 w-14"><i data-lucide="inbox" class="h-6 w-6"></i></div>
+            <h3 class="mt-6 font-display text-lg font-bold">Recebimento de Vários Currículos</h3>
+            <p class="mt-3 text-sm leading-relaxed text-white/70">Candidatos qualificados enviados direto no seu WhatsApp.</p>
+          </article>
+          <article class="reveal group rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition duration-300 hover:-translate-y-1 hover:border-gold/50" style="--d:200ms">
+            <div class="icon-ring h-14 w-14"><i data-lucide="pen-tool" class="h-6 w-6"></i></div>
+            <h3 class="mt-6 font-display text-lg font-bold">Texto e Arte Estratégica</h3>
+            <p class="mt-3 text-sm leading-relaxed text-white/70">Criamos uma redação persuasiva e uma arte exclusiva para destacar sua vaga.</p>
+          </article>
+          <article class="reveal group rounded-2xl border border-white/10 bg-white/[0.04] p-7 transition duration-300 hover:-translate-y-1 hover:border-gold/50" style="--d:300ms">
+            <div class="icon-ring h-14 w-14"><i data-lucide="share-2" class="h-6 w-6"></i></div>
+            <h3 class="mt-6 font-display text-lg font-bold">Distribuição Multicanal</h3>
+            <p class="mt-3 text-sm leading-relaxed text-white/70">Divulgação ativa no WhatsApp, Facebook, Instagram, LinkedIn e Telegram.</p>
+          </article>
+        </div>
+
+        <div class="reveal mt-14 flex flex-col items-center justify-between gap-6 rounded-2xl border border-gold/30 bg-navy-800/70 p-6 sm:p-8 md:flex-row">
+          <div class="flex items-center gap-4">
+            <div class="icon-ring h-12 w-12"><i data-lucide="zap" class="h-5 w-5"></i></div>
+            <p class="font-display text-lg font-bold sm:text-xl">Precisa contratar com rapidez? Sua vaga em <span class="text-gold-300">400 grupos</span> de emprego.</p>
+          </div>
+          <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+             data-wa-msg="Olá! Quero divulgar minha vaga nos 400 grupos de vagas de emprego (WhatsApp, Facebook, Instagram, LinkedIn e Telegram). Como funciona?"
+             class="bg-gold-grad inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl px-7 py-4 font-bold text-navy-900 shadow-gold hover:-translate-y-0.5 md:w-auto">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Divulgar Minha Vaga Agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INVESTIMENTO ===================== -->
+    <section id="investimento" class="py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-gold-700">Investimento por Categoria de Vaga</p>
+          <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">Transparência do início ao fim</h2>
+          <p class="mt-4 text-lg text-slate-600">O investimento é calculado sobre o salário bruto mensal da vaga, de acordo com a categoria.</p>
+        </div>
+
+        <div class="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
+          <!-- Operacional -->
+          <article class="reveal flex flex-col rounded-2xl bg-white p-8 shadow-soft ring-1 ring-slate-200/70 transition duration-300 hover:-translate-y-1 hover:shadow-lift" style="--d:0ms">
+            <div class="flex items-center gap-4">
+              <div class="icon-ring h-12 w-12"><i data-lucide="hard-hat" class="h-5 w-5"></i></div>
+              <h3 class="font-display text-xl font-bold text-navy-900">Vaga Operacional</h3>
+            </div>
+            <div class="mt-7 flex items-end gap-2">
+              <span class="font-display text-6xl font-black leading-none text-navy-900">45%</span>
+              <span class="pb-1 text-sm font-medium text-slate-500">do salário bruto mensal</span>
+            </div>
+            <div class="mt-7 border-t border-slate-100 pt-6">
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Exemplos de vagas atendidas</p>
+              <ul class="mt-4 flex flex-wrap gap-2 text-sm">
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Auxiliar de Produção</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Operador de Caixa</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Repositor</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Motorista</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Ajudante Geral</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Auxiliar de Serviços Gerais</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Conferente</li>
+              </ul>
+            </div>
+            <ul class="mt-7 space-y-2.5 text-sm text-slate-600">
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> Metodologia completa em 5 etapas</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> 50% na abertura + 50% na admissão</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> Garantia de reposição de 30 dias</li>
+            </ul>
+            <div class="mt-auto space-y-3 pt-8">
+              <button type="button" data-simular="0.45" class="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-navy-900 px-5 py-3 font-bold text-navy-900 transition hover:bg-navy-900 hover:text-white">
+                <i data-lucide="calculator" class="h-5 w-5"></i> Simular investimento
+              </button>
+              <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+                 data-wa-msg="Olá! Tenho interesse no Recrutamento & Seleção para uma Vaga Operacional (45% do salário bruto mensal). Gostaria de um orçamento."
+                 class="flex w-full items-center justify-center gap-2 rounded-xl bg-navy-900 px-5 py-3 font-bold text-white transition hover:bg-navy-800">
+                <i class="fa-brands fa-whatsapp text-gold"></i> Solicitar no WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <!-- Administrativa -->
+          <article class="reveal relative flex flex-col rounded-2xl border-2 border-gold bg-navy-900 p-8 text-white shadow-lift transition duration-300 hover:-translate-y-1 lg:-my-4 lg:py-12" style="--d:120ms">
+            <div class="flex items-center gap-4">
+              <div class="icon-ring h-12 w-12"><i data-lucide="building-2" class="h-5 w-5"></i></div>
+              <h3 class="font-display text-xl font-bold">Vaga Administrativa</h3>
+            </div>
+            <div class="mt-7 flex items-end gap-2">
+              <span class="font-display text-6xl font-black leading-none text-gold-grad">50%</span>
+              <span class="pb-1 text-sm font-medium text-white/60">do salário bruto mensal</span>
+            </div>
+            <div class="mt-7 border-t border-white/10 pt-6">
+              <p class="text-xs font-bold uppercase tracking-widest text-white/50">Exemplos de vagas atendidas</p>
+              <ul class="mt-4 flex flex-wrap gap-2 text-sm">
+                <li class="rounded-full bg-white/10 px-3 py-1 text-white/85">Assistente Administrativo</li>
+                <li class="rounded-full bg-white/10 px-3 py-1 text-white/85">Assistente Financeiro</li>
+                <li class="rounded-full bg-white/10 px-3 py-1 text-white/85">Assistente de RH</li>
+                <li class="rounded-full bg-white/10 px-3 py-1 text-white/85">Auxiliar DP</li>
+                <li class="rounded-full bg-white/10 px-3 py-1 text-white/85">Analista Fiscal</li>
+                <li class="rounded-full bg-white/10 px-3 py-1 text-white/85">Vendedor Interno</li>
+                <li class="rounded-full bg-white/10 px-3 py-1 text-white/85">Recepcionista Administrativa</li>
+              </ul>
+            </div>
+            <ul class="mt-7 space-y-2.5 text-sm text-white/75">
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold"></i> Metodologia completa em 5 etapas</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold"></i> 50% na abertura + 50% na admissão</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold"></i> Garantia de reposição de 30 dias</li>
+            </ul>
+            <div class="mt-auto space-y-3 pt-8">
+              <button type="button" data-simular="0.50" class="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-gold/70 px-5 py-3 font-bold text-gold-300 transition hover:bg-gold/10 hover:text-white">
+                <i data-lucide="calculator" class="h-5 w-5"></i> Simular investimento
+              </button>
+              <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+                 data-wa-msg="Olá! Tenho interesse no Recrutamento & Seleção para uma Vaga Administrativa (50% do salário bruto mensal). Gostaria de um orçamento."
+                 class="bg-gold-grad flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-bold text-navy-900 shadow-gold">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar no WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <!-- Gestão -->
+          <article class="reveal flex flex-col rounded-2xl bg-white p-8 shadow-soft ring-1 ring-slate-200/70 transition duration-300 hover:-translate-y-1 hover:shadow-lift" style="--d:240ms">
+            <div class="flex items-center gap-4">
+              <div class="icon-ring h-12 w-12"><i data-lucide="crown" class="h-5 w-5"></i></div>
+              <h3 class="font-display text-xl font-bold text-navy-900">Vaga de Gestão</h3>
+            </div>
+            <div class="mt-7 flex items-end gap-2">
+              <span class="font-display text-6xl font-black leading-none text-navy-900">60%</span>
+              <span class="pb-1 text-sm font-medium text-slate-500">do salário bruto mensal</span>
+            </div>
+            <div class="mt-7 border-t border-slate-100 pt-6">
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Exemplos de vagas atendidas</p>
+              <ul class="mt-4 flex flex-wrap gap-2 text-sm">
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Analista</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Supervisor</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Coordenador</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Gerente</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Diretor</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Gestor de Área</li>
+                <li class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">Liderança em Geral</li>
+              </ul>
+            </div>
+            <ul class="mt-7 space-y-2.5 text-sm text-slate-600">
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> Metodologia completa em 5 etapas</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> 50% na abertura + 50% na admissão</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-gold-600"></i> Garantia de reposição de 30 dias</li>
+            </ul>
+            <div class="mt-auto space-y-3 pt-8">
+              <button type="button" data-simular="0.60" class="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-navy-900 px-5 py-3 font-bold text-navy-900 transition hover:bg-navy-900 hover:text-white">
+                <i data-lucide="calculator" class="h-5 w-5"></i> Simular investimento
+              </button>
+              <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+                 data-wa-msg="Olá! Tenho interesse no Recrutamento & Seleção para uma Vaga de Gestão (60% do salário bruto mensal). Gostaria de um orçamento."
+                 class="flex w-full items-center justify-center gap-2 rounded-xl bg-navy-900 px-5 py-3 font-bold text-white transition hover:bg-navy-800">
+                <i class="fa-brands fa-whatsapp text-gold"></i> Solicitar no WhatsApp
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SIMULADOR ===================== -->
+    <section id="simulador" class="bg-white py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-gold-700">Simulador de Investimento</p>
+          <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">Calcule agora o investimento da sua vaga</h2>
+          <p class="mt-4 text-lg text-slate-600">Escolha a categoria, informe o salário bruto e veja o valor e as condições de pagamento em tempo real.</p>
+        </div>
+
+        <div class="reveal mt-14 grid gap-6 lg:grid-cols-5">
+          <!-- Entradas -->
+          <form id="calcForm" class="rounded-2xl bg-ice p-6 ring-1 ring-slate-200 sm:p-8 lg:col-span-3" onsubmit="return false" novalidate>
+            <fieldset>
+              <legend class="flex items-center gap-3 font-display text-lg font-bold text-navy-900">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-navy-900 text-sm text-gold">1</span>
+                Selecione o tipo de vaga
+              </legend>
+              <div class="mt-5 grid gap-3 sm:grid-cols-3">
+                <label class="block cursor-pointer">
+                  <input class="cat-input sr-only" type="radio" name="categoria" value="0.45" data-label="Vaga Operacional" />
+                  <div class="cat-tile flex h-full flex-col rounded-xl border-2 border-slate-200 bg-white p-4 transition hover:border-gold/60">
+                    <div class="flex items-center justify-between">
+                      <i data-lucide="hard-hat" class="h-5 w-5 text-navy-800"></i>
+                      <span class="cat-check flex h-5 w-5 items-center justify-center rounded-full border-2 border-slate-300 transition"><i data-lucide="check" class="h-3 w-3"></i></span>
+                    </div>
+                    <p class="mt-3 font-bold text-navy-900">Operacional</p>
+                    <p class="text-sm font-semibold text-gold-700">45% do salário</p>
+                  </div>
+                </label>
+                <label class="block cursor-pointer">
+                  <input class="cat-input sr-only" type="radio" name="categoria" value="0.50" data-label="Vaga Administrativa" checked />
+                  <div class="cat-tile flex h-full flex-col rounded-xl border-2 border-slate-200 bg-white p-4 transition hover:border-gold/60">
+                    <div class="flex items-center justify-between">
+                      <i data-lucide="building-2" class="h-5 w-5 text-navy-800"></i>
+                      <span class="cat-check flex h-5 w-5 items-center justify-center rounded-full border-2 border-slate-300 transition"><i data-lucide="check" class="h-3 w-3"></i></span>
+                    </div>
+                    <p class="mt-3 font-bold text-navy-900">Administrativa</p>
+                    <p class="text-sm font-semibold text-gold-700">50% do salário</p>
+                  </div>
+                </label>
+                <label class="block cursor-pointer">
+                  <input class="cat-input sr-only" type="radio" name="categoria" value="0.60" data-label="Vaga de Gestão" />
+                  <div class="cat-tile flex h-full flex-col rounded-xl border-2 border-slate-200 bg-white p-4 transition hover:border-gold/60">
+                    <div class="flex items-center justify-between">
+                      <i data-lucide="crown" class="h-5 w-5 text-navy-800"></i>
+                      <span class="cat-check flex h-5 w-5 items-center justify-center rounded-full border-2 border-slate-300 transition"><i data-lucide="check" class="h-3 w-3"></i></span>
+                    </div>
+                    <p class="mt-3 font-bold text-navy-900">Gestão</p>
+                    <p class="text-sm font-semibold text-gold-700">60% do salário</p>
+                  </div>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="mt-8">
+              <label for="salario" class="flex items-center gap-3 font-display text-lg font-bold text-navy-900">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-navy-900 text-sm text-gold">2</span>
+                Salário bruto mensal da vaga
+              </label>
+              <div class="relative mt-4">
+                <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-slate-400">R$</span>
+                <input id="salario" type="text" inputmode="numeric" autocomplete="off" placeholder="0,00"
+                       class="w-full rounded-xl border-2 border-slate-200 bg-white py-4 pl-14 pr-4 text-2xl font-bold text-navy-900 outline-none transition placeholder:text-slate-300 focus:border-gold focus:ring-4 focus:ring-gold/20" aria-describedby="salarioHint" />
+              </div>
+              <div class="mt-3 flex flex-wrap items-center gap-2" id="salarioHint">
+                <span class="text-sm text-slate-500">Valores rápidos:</span>
+                <button type="button" data-preset="180000" class="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-navy-800 transition hover:border-gold">R$ 1.800</button>
+                <button type="button" data-preset="300000" class="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-navy-800 transition hover:border-gold">R$ 3.000</button>
+                <button type="button" data-preset="600000" class="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-navy-800 transition hover:border-gold">R$ 6.000</button>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <label for="cargo" class="flex items-center gap-3 font-display text-lg font-bold text-navy-900">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-navy-900 text-sm text-gold">3</span>
+                Nome do cargo <span class="text-sm font-medium text-slate-400">(opcional)</span>
+              </label>
+              <input id="cargo" type="text" maxlength="80" placeholder="Ex.: Assistente Administrativo"
+                     class="mt-4 w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3.5 font-medium text-navy-900 outline-none transition placeholder:text-slate-400 focus:border-gold focus:ring-4 focus:ring-gold/20" />
+            </div>
+          </form>
+
+          <!-- Resultado -->
+          <div class="navy-pattern relative flex flex-col overflow-hidden rounded-2xl p-6 text-white shadow-lift ring-2 ring-gold/60 sm:p-8 lg:col-span-2" aria-live="polite">
+            <div class="flex items-center justify-between gap-3">
+              <p class="text-sm font-semibold uppercase tracking-widest text-gold-300">Resultado da simulação</p>
+              <span id="resPct" class="rounded-full bg-gold px-3 py-1 text-xs font-bold text-navy-900">50%</span>
+            </div>
+            <p id="resCategoria" class="mt-4 text-white/70">Vaga Administrativa</p>
+
+            <p class="mt-6 text-sm text-white/60">Investimento total</p>
+            <p id="resTotal" class="font-display text-4xl font-black text-gold-grad sm:text-5xl">R$ 0,00</p>
+
+            <div class="mt-7 space-y-3">
+              <p class="text-sm font-semibold text-white/80">Condições de pagamento</p>
+              <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="folder-open" class="h-5 w-5 text-gold"></i>
+                  <div class="leading-tight"><p class="text-sm font-semibold">50% na abertura</p><p class="text-xs text-white/55">da vaga</p></div>
+                </div>
+                <p id="resParc1" class="font-bold">R$ 0,00</p>
+              </div>
+              <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="user-check" class="h-5 w-5 text-gold"></i>
+                  <div class="leading-tight"><p class="text-sm font-semibold">50% na admissão</p><p class="text-xs text-white/55">do colaborador</p></div>
+                </div>
+                <p id="resParc2" class="font-bold">R$ 0,00</p>
+              </div>
+            </div>
+
+            <div class="mt-6 flex items-center gap-2 text-sm text-white/70">
+              <i data-lucide="shield-check" class="h-4 w-4 text-gold"></i> Inclui garantia de reposição de 30 dias
+            </div>
+
+            <div class="mt-auto pt-8">
+              <a id="calcWa" href="https://wa.me/5562993411083" target="_blank" rel="noopener" aria-disabled="true"
+                 class="bg-gold-grad wa-disabled flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 text-center font-bold text-navy-900 shadow-gold">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Contratar Esta Seleção no WhatsApp
+              </a>
+              <p id="calcHint" class="mt-3 text-center text-xs text-white/55">Informe o salário bruto para liberar o envio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PAGAMENTO & GARANTIA ===================== -->
+    <section id="garantia" class="py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-gold-700">Condições de Pagamento</p>
+          <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">Você só paga o restante quando o colaborador é admitido</h2>
+        </div>
+
+        <!-- Fluxo de pagamento -->
+        <div class="reveal mx-auto mt-12 grid max-w-4xl items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
+          <div class="flex items-center gap-5 rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200/70">
+            <div class="icon-ring h-16 w-16 font-display text-xl font-black">50%</div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-gold-700">Etapa 1</p>
+              <p class="mt-1 font-display text-lg font-bold text-navy-900">Na abertura da vaga</p>
+              <p class="text-sm text-slate-500">Iniciamos o processo seletivo.</p>
+            </div>
+          </div>
+          <div class="flex justify-center text-gold" aria-hidden="true">
+            <i data-lucide="arrow-right" class="hidden h-8 w-8 md:block"></i>
+            <i data-lucide="arrow-down" class="h-8 w-8 md:hidden"></i>
+          </div>
+          <div class="flex items-center gap-5 rounded-2xl bg-white p-6 shadow-soft ring-1 ring-slate-200/70">
+            <div class="icon-ring h-16 w-16 font-display text-xl font-black">50%</div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-gold-700">Etapa 2</p>
+              <p class="mt-1 font-display text-lg font-bold text-navy-900">Na data da admissão</p>
+              <p class="text-sm text-slate-500">Do colaborador selecionado.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner de garantia -->
+        <div class="reveal relative mt-16 overflow-hidden rounded-2xl bg-navy-900 text-white shadow-lift">
+          <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/15 blur-3xl" aria-hidden="true"></div>
+          <div class="pointer-events-none absolute inset-0 rounded-2xl ring-2 ring-inset ring-gold/50" aria-hidden="true"></div>
+          <div class="relative grid items-center gap-10 p-8 sm:p-12 lg:grid-cols-[auto_1fr]">
+            <!-- Selo dourado -->
+            <svg class="mx-auto h-48 w-48 drop-shadow-[0_10px_30px_rgba(212,175,55,.35)] sm:h-56 sm:w-56" viewBox="0 0 200 220" role="img" aria-label="Selo de Garantia de 30 dias">
+              <defs>
+                <linearGradient id="seal-gold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#C59B27" /><stop offset=".45" stop-color="#F1D77A" /><stop offset=".7" stop-color="#D4AF37" /><stop offset="1" stop-color="#A9841E" />
+                </linearGradient>
+                <path id="seal-arc-top" d="M 30 100 A 70 70 0 0 1 170 100" />
+                <path id="seal-arc-bottom" d="M 36 104 A 64 64 0 0 0 164 104" />
+              </defs>
+              <!-- fitas -->
+              <polygon points="62,150 48,215 70,203 84,218 96,160" fill="#A9841E" />
+              <polygon points="138,150 152,215 130,203 116,218 104,160" fill="#A9841E" />
+              <!-- disco -->
+              <circle cx="100" cy="100" r="92" fill="url(#seal-gold)" />
+              <circle cx="100" cy="100" r="84" fill="none" stroke="#0B1D3A" stroke-width="1.5" stroke-dasharray="3 4" opacity=".55" />
+              <circle cx="100" cy="100" r="58" fill="#0B1D3A" />
+              <circle cx="100" cy="100" r="52" fill="none" stroke="#D4AF37" stroke-width="1.5" />
+              <text font-family="Montserrat, sans-serif" font-weight="800" font-size="13" letter-spacing="3" fill="#0B1D3A">
+                <textPath href="#seal-arc-top" startOffset="50%" text-anchor="middle">GARANTIA BLINDADA</textPath>
+              </text>
+              <text font-family="Montserrat, sans-serif" font-weight="800" font-size="11" letter-spacing="2.5" fill="#0B1D3A">
+                <textPath href="#seal-arc-bottom" startOffset="50%" text-anchor="middle">★ REPOSIÇÃO ★</textPath>
+              </text>
+              <text x="100" y="108" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="900" font-size="46" fill="#E6C65A">30</text>
+              <text x="100" y="130" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="14" letter-spacing="4" fill="#fff">DIAS</text>
+            </svg>
+
+            <div class="text-center lg:text-left">
+              <span class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-sm font-semibold text-gold-300">
+                <i data-lucide="badge-check" class="h-4 w-4"></i> Garantia Blindada
+              </span>
+              <h3 class="mt-5 font-display text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl">
+                Garantia de Reposição do Profissional por <span class="text-gold-grad">30 Dias</span>
+              </h3>
+              <blockquote class="mt-5 border-l-4 border-gold pl-5 text-left text-lg leading-relaxed text-white/80">
+                “Se o colaborador apresentar problemas de assiduidade ou comportamento que comprometa a operação, faremos a reposição sem custo.”
+              </blockquote>
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+                <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+                   data-wa-msg="Olá! Quero contratar o Recrutamento & Seleção com a Garantia de Reposição de 30 dias. Gostaria de um orçamento."
+                   class="bg-gold-grad inline-flex items-center justify-center gap-2 rounded-xl px-7 py-4 font-bold text-navy-900 shadow-gold hover:-translate-y-0.5">
+                  <i class="fa-brands fa-whatsapp text-lg"></i> Contratar com Garantia
+                </a>
+                <a href="#simulador" class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/20 px-7 py-4 font-bold text-white transition hover:border-gold hover:text-gold-300">
+                  <i data-lucide="calculator" class="h-5 w-5"></i> Simular investimento
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section id="contato" class="hero-bg relative overflow-hidden py-20 text-white lg:py-28">
+      <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <div class="reveal icon-ring mx-auto h-16 w-16"><i data-lucide="search" class="h-7 w-7"></i></div>
+        <h2 class="reveal mt-8 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl" style="--d:100ms">
+          Vamos encontrar os <span class="text-gold-grad">melhores talentos</span> para sua empresa!
+        </h2>
+        <p class="reveal mt-5 text-xl text-white/75" style="--d:200ms">Solicite um orçamento sem compromisso!</p>
+
+        <div class="reveal mt-10 flex flex-col justify-center gap-3 sm:flex-row" style="--d:300ms">
+          <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+             data-wa-msg="Olá! Vamos encontrar os melhores talentos para minha empresa. Gostaria de um orçamento sem compromisso para Recrutamento & Seleção."
+             class="bg-gold-grad inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 text-lg font-bold text-navy-900 shadow-gold hover:-translate-y-0.5">
+            <i class="fa-brands fa-whatsapp text-xl"></i> Solicitar Orçamento Agora
+          </a>
+          <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+             data-wa-msg="Olá! Tenho uma vaga específica e gostaria de ajuda para preencher. Cargo: "
+             class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-gold/70 px-8 py-4 text-lg font-bold text-gold-300 transition hover:bg-gold/10 hover:text-white">
+            <i data-lucide="briefcase" class="h-5 w-5"></i> Tenho uma vaga específica
+          </a>
+        </div>
+
+        <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+           data-wa-msg="Olá, Emprego Em Foco! Vim pelo site e gostaria de falar com um consultor."
+           class="reveal mt-10 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 transition hover:border-gold/50" style="--d:400ms">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-2xl text-white"><i class="fa-brands fa-whatsapp"></i></span>
+          <span class="text-left leading-tight">
+            <span class="block text-xs uppercase tracking-widest text-white/55">WhatsApp oficial</span>
+            <span class="block font-display text-xl font-bold">(62) 99341-1083</span>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="bg-navy-950 text-white/70">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3 lg:px-8">
+      <div>
+        <a href="#topo" class="flex items-center gap-3" aria-label="Emprego Em Foco — voltar ao topo">
+          <svg class="h-10 w-10 shrink-0" viewBox="0 0 44 44" aria-hidden="true">
+            <circle cx="19" cy="19" r="14" fill="#132B52" stroke="url(#lg-gold)" stroke-width="3.5" />
+            <path d="M29.5 29.5 40 40" stroke="url(#lg-gold)" stroke-width="5" stroke-linecap="round" />
+            <rect x="11.5" y="16" width="15" height="10" rx="2" fill="#fff" />
+            <path d="M16 16v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="none" stroke="#fff" stroke-width="1.8" />
+            <path d="M11.5 20.5h15" stroke="#132B52" stroke-width="1.2" />
+            <rect x="17.8" y="19.4" width="2.4" height="2.4" rx=".5" fill="#D4AF37" />
+          </svg>
+          <span class="leading-none">
+            <span class="block font-display text-lg font-extrabold tracking-[0.18em] text-white">EMPREGO</span>
+            <span class="block font-display text-sm font-bold tracking-wide text-gold-grad">Em Foco</span>
+          </span>
+        </a>
+        <p class="mt-5 max-w-xs text-sm leading-relaxed">Consultoria especializada em Recrutamento &amp; Seleção e divulgação de vagas. Atuação em todo o Estado de Goiás.</p>
+      </div>
+
+      <div>
+        <p class="font-display text-sm font-bold uppercase tracking-widest text-gold-300">Navegação</p>
+        <ul class="mt-5 grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm">
+          <li><a class="transition hover:text-white" href="#servicos">Serviços</a></li>
+          <li><a class="transition hover:text-white" href="#divulgacao">Divulgação de Vagas</a></li>
+          <li><a class="transition hover:text-white" href="#investimento">Investimento</a></li>
+          <li><a class="transition hover:text-white" href="#simulador">Simulador</a></li>
+          <li><a class="transition hover:text-white" href="#garantia">Garantia</a></li>
+          <li><a class="transition hover:text-white" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-display text-sm font-bold uppercase tracking-widest text-gold-300">Contato</p>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li>
+            <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+               data-wa-msg="Olá, Emprego Em Foco! Vim pelo site e gostaria de mais informações."
+               class="inline-flex items-center gap-3 transition hover:text-white">
+              <i class="fa-brands fa-whatsapp text-lg text-[#25D366]"></i> (62) 99341-1083
+            </a>
+          </li>
+          <li class="flex items-center gap-3"><i data-lucide="map-pin" class="h-4 w-4 text-gold"></i> Atendimento em todo o Estado de Goiás</li>
+          <li class="flex items-center gap-3"><i data-lucide="briefcase" class="h-4 w-4 text-gold"></i> Vagas de todos os segmentos</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-white/45 sm:flex-row sm:px-6 lg:px-8">
+        <p>© <span id="ano">2026</span> Emprego Em Foco. Todos os direitos reservados.</p>
+        <p>Recrutamento &amp; Seleção · Goiás</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante de WhatsApp -->
+  <a href="https://wa.me/5562993411083" target="_blank" rel="noopener"
+     data-wa-msg="Olá, Emprego Em Foco! Vim pelo site e gostaria de mais informações sobre Recrutamento & Seleção."
+     class="group fixed bottom-5 right-5 z-50 flex items-center gap-3" aria-label="Fale conosco no WhatsApp">
+    <span class="pointer-events-none hidden translate-x-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-navy-900 opacity-0 shadow-lift transition group-hover:translate-x-0 group-hover:opacity-100 md:block">Fale com um consultor</span>
+    <span class="wa-pulse relative isolate flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-3xl text-white shadow-lift transition group-hover:scale-105">
+      <i class="fa-brands fa-whatsapp"></i>
+    </span>
+  </a>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var WA_NUMBER = '5562993411083';
+      var waLink = function (msg) { return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg); };
+
+      // Ícones
+      if (window.lucide) window.lucide.createIcons();
+
+      // Links de WhatsApp com mensagens personalizadas
+      document.querySelectorAll('[data-wa-msg]').forEach(function (el) {
+        el.setAttribute('href', waLink(el.getAttribute('data-wa-msg')));
+      });
+
+      // Ano no rodapé
+      document.getElementById('ano').textContent = new Date().getFullYear();
+
+      // Navbar: sombra ao rolar
+      var navbar = document.getElementById('navbar');
+      var onScroll = function () {
+        var scrolled = window.scrollY > 20;
+        navbar.classList.toggle('bg-navy-900/95', scrolled);
+        navbar.classList.toggle('shadow-lift', scrolled);
+        navbar.classList.toggle('bg-navy-900/70', !scrolled);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Menu mobile
+      var menuBtn = document.getElementById('menuBtn');
+      var mobileMenu = document.getElementById('mobileMenu');
+      var setMenu = function (open) {
+        mobileMenu.classList.toggle('hidden', !open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        menuBtn.innerHTML = '<i data-lucide="' + (open ? 'x' : 'menu') + '" class="h-6 w-6"></i>';
+        if (window.lucide) window.lucide.createIcons();
+      };
+      menuBtn.addEventListener('click', function () { setMenu(mobileMenu.classList.contains('hidden')); });
+      mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+      // Animações de entrada
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      // Link ativo na navbar
+      var navLinks = document.querySelectorAll('.nav-link');
+      var sections = ['servicos', 'divulgacao', 'investimento', 'simulador', 'garantia', 'contato']
+        .map(function (id) { return document.getElementById(id); });
+      if ('IntersectionObserver' in window) {
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            navLinks.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id); });
+          });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        sections.forEach(function (s) { spy.observe(s); });
+      }
+
+      // ===================== SIMULADOR =====================
+      var brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+      var num = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      var fmt = function (cents) { return brl.format(cents / 100); };
+
+      var salarioEl = document.getElementById('salario');
+      var cargoEl = document.getElementById('cargo');
+      var radios = document.querySelectorAll('input[name="categoria"]');
+      var out = {
+        pct: document.getElementById('resPct'),
+        cat: document.getElementById('resCategoria'),
+        total: document.getElementById('resTotal'),
+        p1: document.getElementById('resParc1'),
+        p2: document.getElementById('resParc2'),
+        wa: document.getElementById('calcWa'),
+        hint: document.getElementById('calcHint'),
+      };
+      var salarioCents = 0;
+
+      var selected = function () {
+        var r = document.querySelector('input[name="categoria"]:checked');
+        return { rate: parseFloat(r.value), label: r.getAttribute('data-label') };
+      };
+
+      var bump = function (el) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); };
+
+      var update = function () {
+        var cat = selected();
+        var totalCents = Math.round(salarioCents * cat.rate);
+        var p1 = Math.round(totalCents / 2);
+        var p2 = totalCents - p1;
+        var pctLabel = Math.round(cat.rate * 100) + '%';
+
+        out.pct.textContent = pctLabel;
+        out.cat.textContent = cat.label + ' · ' + pctLabel + ' do salário bruto mensal';
+        out.total.textContent = fmt(totalCents);
+        out.p1.textContent = fmt(p1);
+        out.p2.textContent = fmt(p2);
+        bump(out.total);
+
+        var ready = salarioCents > 0;
+        out.wa.classList.toggle('wa-disabled', !ready);
+        out.wa.setAttribute('aria-disabled', String(!ready));
+        out.wa.tabIndex = ready ? 0 : -1;
+        out.hint.textContent = ready
+          ? 'A mensagem com o resumo do cálculo será enviada para a nossa equipe.'
+          : 'Informe o salário bruto para liberar o envio.';
+
+        var cargo = cargoEl.value.trim();
+        var msg =
+          'Olá, Emprego Em Foco! Fiz uma simulação no site e quero contratar esta seleção:\n\n' +
+          '*Categoria:* ' + cat.label + ' (' + pctLabel + ')\n' +
+          (cargo ? '*Cargo:* ' + cargo + '\n' : '') +
+          '*Salário bruto mensal:* ' + fmt(salarioCents) + '\n' +
+          '*Investimento total:* ' + fmt(totalCents) + '\n\n' +
+          '*Condições de pagamento:*\n' +
+          '• 50% na abertura da vaga: ' + fmt(p1) + '\n' +
+          '• 50% na admissão do colaborador: ' + fmt(p2) + '\n\n' +
+          'Podemos dar andamento?';
+        out.wa.setAttribute('href', waLink(msg));
+      };
+
+      var setSalario = function (cents) {
+        salarioCents = Math.min(cents, 99999999999);
+        salarioEl.value = salarioCents ? num.format(salarioCents / 100) : '';
+        update();
+      };
+
+      salarioEl.addEventListener('input', function () {
+        var digits = salarioEl.value.replace(/\D/g, '').replace(/^0+/, '').slice(0, 11);
+        setSalario(digits ? parseInt(digits, 10) : 0);
+      });
+      salarioEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') e.preventDefault(); });
+      cargoEl.addEventListener('input', update);
+      radios.forEach(function (r) { r.addEventListener('change', update); });
+
+      document.querySelectorAll('[data-preset]').forEach(function (b) {
+        b.addEventListener('click', function () { setSalario(parseInt(b.getAttribute('data-preset'), 10)); });
+      });
+
+      out.wa.addEventListener('click', function (e) {
+        if (salarioCents <= 0) { e.preventDefault(); salarioEl.focus(); }
+      });
+
+      // Botões "Simular investimento" nos cards de planos
+      document.querySelectorAll('[data-simular]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var val = b.getAttribute('data-simular');
+          radios.forEach(function (r) { r.checked = (r.value === val); });
+          update();
+          document.getElementById('simulador').scrollIntoView({ behavior: 'smooth' });
+          setTimeout(function () { salarioEl.focus({ preventScroll: true }); }, 600);
+        });
+      });
+
+      update();
+    })();
+  </script>
+</body>
+</html>
