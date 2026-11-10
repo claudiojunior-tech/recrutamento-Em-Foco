@@ -5,21 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Emprego Em Foco | Recrutamento & Seleção em Goiás</title>
   <meta name="description" content="Consultoria especializada em Recrutamento & Seleção e divulgação de vagas em todo o Estado de Goiás. Processo completo, garantia de reposição de 30 dias. Solicite um orçamento sem compromisso." />
-  <meta name="theme-color" content="#0B1D3A" />
+  <meta name="theme-color" content="#05075E" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Emprego Em Foco | Recrutamento Estratégico que Gera Resultados" />
   <meta property="og:description" content="Recrutamento & Seleção e divulgação de vagas em 400 grupos. Atuação em todo o Estado de Goiás." />
+  <meta property="og:image" content="assets/logo-emprego-em-foco.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
 
-  <!-- Favicon (lupa dourada com maleta) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='19' cy='19' r='14' fill='%230B1D3A' stroke='%23D4AF37' stroke-width='3.5'/%3E%3Cpath d='M29.5 29.5 40 40' stroke='%23D4AF37' stroke-width='5' stroke-linecap='round'/%3E%3Crect x='11.5' y='16' width='15' height='10' rx='2' fill='%23fff'/%3E%3Cpath d='M16 16v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2' fill='none' stroke='%23fff' stroke-width='1.8'/%3E%3C/svg%3E" />
+  <!-- Favicon (logo Emprego Em Foco) -->
+  <link rel="icon" type="image/png" href="assets/logo-icone.png" />
+  <link rel="apple-touch-icon" href="assets/logo-icone.png" />
 
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet" />
 
   <!-- Ícones de marcas (WhatsApp, Instagram, redes sociais) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -31,19 +33,23 @@
       theme: {
         extend: {
           colors: {
-            navy: { 950: '#071327', 900: '#0B1D3A', 800: '#132B52', 700: '#1C3A6B' },
-            gold: { DEFAULT: '#D4AF37', 300: '#E6C65A', 600: '#C59B27', 700: '#9A7A1C' },
+            navy: { 950: '#03043F', 900: '#05075E', 800: '#0C0F7C', 700: '#1519A0' },
+            gold: { DEFAULT: '#2BDB3C', 300: '#6BF27A', 600: '#19B92E', 700: '#0B7A20' },
             ice: '#F8FAFC',
+            cream: '#F3E8BC',
+            teal: { brand: '#01B39D' },
+            sun: '#FDE101',
             ink: '#1E293B',
           },
           fontFamily: {
             sans: ['Inter', 'system-ui', 'sans-serif'],
             display: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+            script: ['Pacifico', 'cursive'],
           },
           boxShadow: {
-            soft: '0 8px 24px -12px rgba(11, 29, 58, 0.16)',
-            lift: '0 20px 44px -20px rgba(11, 29, 58, 0.32)',
-            gold: '0 10px 24px -12px rgba(212, 175, 55, 0.55)',
+            soft: '0 8px 24px -12px rgba(5, 7, 94, 0.16)',
+            lift: '0 20px 44px -20px rgba(5, 7, 94, 0.32)',
+            gold: '0 10px 24px -12px rgba(43,219,60, 0.55)',
           },
         },
       },
@@ -55,25 +61,25 @@
     html, body { overflow-x: clip; }
     body { -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
 
-    .bg-gold-grad { background-image: linear-gradient(135deg, #C59B27 0%, #E6C65A 50%, #C59B27 100%); background-size: 200% 200%; transition: background-position .5s ease, box-shadow .3s ease, transform .3s ease; }
+    .bg-gold-grad { background-image: linear-gradient(135deg, #19B92E 0%, #6BF27A 50%, #19B92E 100%); background-size: 200% 200%; transition: background-position .5s ease, box-shadow .3s ease, transform .3s ease; }
     .bg-gold-grad:hover { background-position: 100% 0; }
-    .text-gold-grad { background-image: linear-gradient(135deg, #C59B27, #E6C65A 55%, #D4AF37); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .text-gold-grad { background-image: linear-gradient(135deg, #19B92E, #6BF27A 55%, #2BDB3C); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
     .hero-bg {
-      background-color: #0B1D3A;
+      background-color: #05075E;
       background-image:
-        radial-gradient(60rem 30rem at 85% -10%, rgba(212,175,55,.14), transparent 60%),
+        radial-gradient(60rem 30rem at 85% -10%, rgba(43,219,60,.14), transparent 60%),
         linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
       background-size: auto, 48px 48px, 48px 48px;
     }
     .navy-pattern {
-      background-color: #0B1D3A;
-      background-image: radial-gradient(50rem 24rem at 100% 0%, rgba(212,175,55,.10), transparent 60%);
+      background-color: #05075E;
+      background-image: radial-gradient(50rem 24rem at 100% 0%, rgba(43,219,60,.10), transparent 60%);
     }
 
-    /* Ícone em círculo azul-marinho com borda dourada */
-    .icon-ring { display:flex; align-items:center; justify-content:center; border-radius:9999px; background:#0B1D3A; border:2px solid #D4AF37; color:#E6C65A; flex-shrink:0; }
+    /* Ícone em círculo azul-marinho com borda verde */
+    .icon-ring { display:flex; align-items:center; justify-content:center; border-radius:9999px; background:#05075E; border:2px solid #2BDB3C; color:#6BF27A; flex-shrink:0; }
 
     .ig-grad { background: linear-gradient(45deg, #F58529, #DD2A7B 45%, #8134AF 75%, #515BD4); }
 
@@ -84,15 +90,15 @@
     @keyframes bump { 0% { transform: scale(1); } 40% { transform: scale(1.03); } 100% { transform: scale(1); } }
     .bump { animation: bump .3s ease; }
 
-    .nav-link.active { color: #E6C65A; }
+    .nav-link.active { color: #6BF27A; }
     .nav-link.active::after { transform: scaleX(1); }
-    .nav-link::after { content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:#D4AF37; transform: scaleX(0); transition: transform .3s ease; border-radius: 2px; }
+    .nav-link::after { content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:#2BDB3C; transform: scaleX(0); transition: transform .3s ease; border-radius: 2px; }
     .nav-link:hover::after { transform: scaleX(1); }
 
     /* Radio tiles do simulador */
-    .cat-input:checked + .cat-tile { border-color: #D4AF37; background: #FFFBEB; box-shadow: 0 0 0 3px rgba(212,175,55,.18); }
-    .cat-input:checked + .cat-tile .cat-check { background: #D4AF37; border-color: #D4AF37; color: #0B1D3A; }
-    .cat-input:focus-visible + .cat-tile { outline: 3px solid #132B52; outline-offset: 2px; }
+    .cat-input:checked + .cat-tile { border-color: #2BDB3C; background: #EFFFF1; box-shadow: 0 0 0 3px rgba(43,219,60,.18); }
+    .cat-input:checked + .cat-tile .cat-check { background: #2BDB3C; border-color: #2BDB3C; color: #05075E; }
+    .cat-input:focus-visible + .cat-tile { outline: 3px solid #0C0F7C; outline-offset: 2px; }
 
     .wa-disabled { opacity: .45; pointer-events: none; filter: grayscale(.3); }
 
@@ -100,17 +106,17 @@
     .svc-pill { transition: transform .35s cubic-bezier(.3,.7,.2,1); }
     .svc-switch[data-active="dv"] .svc-pill { transform: translateX(100%); }
     .svc-tab { color: #475569; transition: color .25s ease; }
-    .svc-tab:hover { color: #0B1D3A; }
+    .svc-tab:hover { color: #05075E; }
     .svc-tab[aria-selected="true"] { color: #fff; }
-    .svc-tab[aria-selected="true"] i, .svc-tab[aria-selected="true"] svg { color: #E6C65A; }
-    .svc-tab:focus-visible { outline: 3px solid #D4AF37; outline-offset: 2px; }
+    .svc-tab[aria-selected="true"] i, .svc-tab[aria-selected="true"] svg { color: #6BF27A; }
+    .svc-tab:focus-visible { outline: 3px solid #2BDB3C; outline-offset: 2px; }
     @keyframes panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
     .panel-in { animation: panel-in .45s cubic-bezier(.2,.7,.2,1); }
 
     /* Planos de divulgação no simulador */
-    .dv-input:checked + .dv-tile { border-color: #D4AF37; background: #FFFBEB; box-shadow: 0 0 0 3px rgba(212,175,55,.18); }
-    .dv-input:checked + .dv-tile .cat-check { background: #D4AF37; border-color: #D4AF37; color: #0B1D3A; }
-    .dv-input:focus-visible + .dv-tile { outline: 3px solid #132B52; outline-offset: 2px; }
+    .dv-input:checked + .dv-tile { border-color: #2BDB3C; background: #EFFFF1; box-shadow: 0 0 0 3px rgba(43,219,60,.18); }
+    .dv-input:checked + .dv-tile .cat-check { background: #2BDB3C; border-color: #2BDB3C; color: #05075E; }
+    .dv-input:focus-visible + .dv-tile { outline: 3px solid #0C0F7C; outline-offset: 2px; }
     .num-field::-webkit-outer-spin-button, .num-field::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     .num-field { -moz-appearance: textfield; appearance: textfield; }
 
@@ -118,8 +124,8 @@
     .faq summary { list-style: none; cursor: pointer; }
     .faq summary::-webkit-details-marker { display: none; }
     .faq .faq-icon { transition: transform .3s ease, background-color .3s ease; }
-    .faq[open] .faq-icon { transform: rotate(45deg); background: #D4AF37; color: #0B1D3A; }
-    .faq[open] { box-shadow: 0 20px 44px -24px rgba(11, 29, 58, 0.30); border-color: rgba(212,175,55,.55); }
+    .faq[open] .faq-icon { transform: rotate(45deg); background: #2BDB3C; color: #05075E; }
+    .faq[open] { box-shadow: 0 20px 44px -24px rgba(5, 7, 94, 0.30); border-color: rgba(43,219,60,.55); }
     .faq[open] .faq-body { animation: panel-in .35s ease; }
 
     @media (prefers-reduced-motion: reduce) {
@@ -135,26 +141,14 @@
 
   <!-- ===================== NAVBAR ===================== -->
   <header id="topo" class="fixed inset-x-0 top-0 z-50">
-    <nav id="navbar" class="border-b border-white/10 bg-navy-900/80 backdrop-blur-xl transition-all duration-300" aria-label="Navegação principal">
+    <nav id="navbar" class="border-b border-white/10 bg-navy-900/95 backdrop-blur-xl transition-all duration-300" aria-label="Navegação principal">
       <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-[72px] lg:px-8">
         <a href="#topo" class="flex items-center gap-2.5" aria-label="Emprego Em Foco — início">
-          <!-- Logo: maleta executiva dentro de lupa dourada -->
-          <svg class="h-9 w-9 shrink-0 lg:h-10 lg:w-10" viewBox="0 0 44 44" aria-hidden="true">
-            <defs>
-              <linearGradient id="lg-gold" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#C59B27" /><stop offset=".5" stop-color="#E6C65A" /><stop offset="1" stop-color="#C59B27" />
-              </linearGradient>
-            </defs>
-            <circle cx="19" cy="19" r="14" fill="#132B52" stroke="url(#lg-gold)" stroke-width="3.5" />
-            <path d="M29.5 29.5 40 40" stroke="url(#lg-gold)" stroke-width="5" stroke-linecap="round" />
-            <rect x="11.5" y="16" width="15" height="10" rx="2" fill="#fff" />
-            <path d="M16 16v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="none" stroke="#fff" stroke-width="1.8" />
-            <path d="M11.5 20.5h15" stroke="#132B52" stroke-width="1.2" />
-            <rect x="17.8" y="19.4" width="2.4" height="2.4" rx=".5" fill="#D4AF37" />
-          </svg>
+          <!-- Logo oficial: lupa verde com maleta -->
+          <img src="assets/logo-icone.png" alt="" width="44" height="44" class="h-10 w-10 shrink-0 lg:h-11 lg:w-11" />
           <span class="leading-none">
-            <span class="block font-display text-base font-extrabold tracking-[0.16em] text-white lg:text-lg">EMPREGO</span>
-            <span class="block font-display text-[13px] font-bold tracking-wide text-gold-grad lg:text-sm">Em Foco</span>
+            <span class="block font-display text-base font-extrabold tracking-[0.12em] text-cream lg:text-lg">EMPREGO</span>
+            <span class="-mt-0.5 block font-script text-[15px] leading-tight text-gold lg:text-base">Em Foco</span>
           </span>
         </a>
 
@@ -256,7 +250,7 @@
               <li class="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3"><i data-lucide="file-search" class="h-4 w-4 text-gold"></i><span class="flex-1">Triagem de currículos</span><i data-lucide="check-circle-2" class="h-5 w-5 text-emerald-400"></i></li>
               <li class="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3"><i data-lucide="messages-square" class="h-4 w-4 text-gold"></i><span class="flex-1">Entrevistas por competências</span><i data-lucide="check-circle-2" class="h-5 w-5 text-emerald-400"></i></li>
               <li class="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3"><i data-lucide="brain" class="h-4 w-4 text-gold"></i><span class="flex-1">Avaliação comportamental</span><i data-lucide="check-circle-2" class="h-5 w-5 text-emerald-400"></i></li>
-              <li class="flex items-center gap-3 rounded-xl border border-gold/40 bg-gold/10 px-4 py-3"><i data-lucide="shield-check" class="h-4 w-4 text-gold"></i><span class="flex-1">Garantia de reposição</span><span class="rounded-full bg-gold px-2 py-0.5 text-[11px] font-bold text-navy-900">30 dias</span></li>
+              <li class="flex items-center gap-3 rounded-xl border border-gold/40 bg-gold/10 px-4 py-3"><i data-lucide="shield-check" class="h-4 w-4 text-gold"></i><span class="flex-1">Garantia de reposição</span><span class="rounded-full bg-sun px-2 py-0.5 text-[11px] font-bold text-navy-900">30 dias</span></li>
             </ul>
           </div>
 
@@ -307,7 +301,7 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="reveal mx-auto max-w-3xl sm:text-center">
           <p class="text-xs font-bold uppercase tracking-[0.18em] text-gold-700 sm:text-sm">Metodologia de Recrutamento &amp; Seleção</p>
-          <h2 class="mt-3 font-display text-[1.625rem] font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl">Um processo completo em <span class="text-gold-grad">4 etapas</span></h2>
+          <h2 class="mt-3 font-display text-[1.625rem] font-extrabold leading-tight tracking-tight text-navy-900 sm:text-4xl">Um processo completo em <span class="text-gold-700">4 etapas</span></h2>
           <p class="mt-3 text-[15px] text-slate-600 sm:mt-4 sm:text-lg">Cada etapa foi pensada para reduzir riscos e entregar à sua empresa profissionais com o perfil certo para a vaga.</p>
         </div>
 
@@ -1101,28 +1095,28 @@
           <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" aria-hidden="true"></div>
           <div class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-gold/40" aria-hidden="true"></div>
           <div class="relative grid items-center gap-6 p-6 sm:gap-10 sm:p-12 lg:grid-cols-[auto_1fr]">
-            <!-- Selo dourado -->
+            <!-- Selo verde -->
             <svg class="mx-auto h-36 w-36 sm:h-52 sm:w-52" viewBox="0 0 200 220" role="img" aria-label="Selo de Garantia de 30 dias">
               <defs>
                 <linearGradient id="seal-gold" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#C59B27" /><stop offset=".45" stop-color="#F1D77A" /><stop offset=".7" stop-color="#D4AF37" /><stop offset="1" stop-color="#A9841E" />
+                  <stop offset="0" stop-color="#19B92E" /><stop offset=".45" stop-color="#A6F7AE" /><stop offset=".7" stop-color="#2BDB3C" /><stop offset="1" stop-color="#0E8F24" />
                 </linearGradient>
                 <path id="seal-arc-top" d="M 30 100 A 70 70 0 0 1 170 100" />
                 <path id="seal-arc-bottom" d="M 36 104 A 64 64 0 0 0 164 104" />
               </defs>
-              <polygon points="62,150 48,215 70,203 84,218 96,160" fill="#A9841E" />
-              <polygon points="138,150 152,215 130,203 116,218 104,160" fill="#A9841E" />
+              <polygon points="62,150 48,215 70,203 84,218 96,160" fill="#0E8F24" />
+              <polygon points="138,150 152,215 130,203 116,218 104,160" fill="#0E8F24" />
               <circle cx="100" cy="100" r="92" fill="url(#seal-gold)" />
-              <circle cx="100" cy="100" r="84" fill="none" stroke="#0B1D3A" stroke-width="1.5" stroke-dasharray="3 4" opacity=".5" />
-              <circle cx="100" cy="100" r="58" fill="#0B1D3A" />
-              <circle cx="100" cy="100" r="52" fill="none" stroke="#D4AF37" stroke-width="1.5" />
-              <text font-family="Montserrat, sans-serif" font-weight="800" font-size="13" letter-spacing="3" fill="#0B1D3A">
+              <circle cx="100" cy="100" r="84" fill="none" stroke="#05075E" stroke-width="1.5" stroke-dasharray="3 4" opacity=".5" />
+              <circle cx="100" cy="100" r="58" fill="#05075E" />
+              <circle cx="100" cy="100" r="52" fill="none" stroke="#2BDB3C" stroke-width="1.5" />
+              <text font-family="Montserrat, sans-serif" font-weight="800" font-size="13" letter-spacing="3" fill="#05075E">
                 <textPath href="#seal-arc-top" startOffset="50%" text-anchor="middle">GARANTIA BLINDADA</textPath>
               </text>
-              <text font-family="Montserrat, sans-serif" font-weight="800" font-size="11" letter-spacing="2.5" fill="#0B1D3A">
+              <text font-family="Montserrat, sans-serif" font-weight="800" font-size="11" letter-spacing="2.5" fill="#05075E">
                 <textPath href="#seal-arc-bottom" startOffset="50%" text-anchor="middle">REPOSIÇÃO</textPath>
               </text>
-              <text x="100" y="108" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="46" fill="#E6C65A">30</text>
+              <text x="100" y="108" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="46" fill="#6BF27A">30</text>
               <text x="100" y="130" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="14" letter-spacing="4" fill="#fff">DIAS</text>
             </svg>
 
@@ -1356,18 +1350,7 @@
     <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-3 lg:px-8">
       <div>
         <a href="#topo" class="flex items-center gap-3" aria-label="Emprego Em Foco — voltar ao topo">
-          <svg class="h-10 w-10 shrink-0" viewBox="0 0 44 44" aria-hidden="true">
-            <circle cx="19" cy="19" r="14" fill="#132B52" stroke="url(#lg-gold)" stroke-width="3.5" />
-            <path d="M29.5 29.5 40 40" stroke="url(#lg-gold)" stroke-width="5" stroke-linecap="round" />
-            <rect x="11.5" y="16" width="15" height="10" rx="2" fill="#fff" />
-            <path d="M16 16v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="none" stroke="#fff" stroke-width="1.8" />
-            <path d="M11.5 20.5h15" stroke="#132B52" stroke-width="1.2" />
-            <rect x="17.8" y="19.4" width="2.4" height="2.4" rx=".5" fill="#D4AF37" />
-          </svg>
-          <span class="leading-none">
-            <span class="block font-display text-lg font-extrabold tracking-[0.16em] text-white">EMPREGO</span>
-            <span class="block font-display text-sm font-bold tracking-wide text-gold-grad">Em Foco</span>
-          </span>
+          <img src="assets/logo-600.jpg" alt="Emprego Em Foco" width="600" height="600" loading="lazy" class="h-36 w-36 rounded-2xl ring-1 ring-white/10 sm:h-40 sm:w-40" />
         </a>
         <p class="mt-5 max-w-xs text-sm leading-relaxed">Consultoria especializada em Recrutamento &amp; Seleção e divulgação de vagas. Atuação em todo o Estado de Goiás.</p>
         <div class="mt-5 flex gap-3">
